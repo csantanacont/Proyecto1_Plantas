@@ -1,0 +1,127 @@
+.tamLogo{
+    width: 4rem;
+    height: 4rem;
+}
+.centro{
+    padding-top: 7%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+.login{
+    text-align: center;
+}
+.inputs:focus{
+    outline:none;
+    border-bottom: 3px solid green;
+} 
+.inputs{
+    border:none;
+    width: 20rem;
+    border-bottom: 2px solid black;
+    margin: 3% 3%;
+    padding: 2% 2%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+}
+p{
+    color: #278650;
+    font-family: 'Cairo', sans-serif;
+    font-size: xx-large; 
+    margin: 0;  
+    margin-bottom:15px;
+}
+.botones{
+    background-color: #278650;
+    border: 0;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 5px;
+    color:white;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+}
+.redimensionar{
+    width: 15rem;
+    padding: 1%;
+}
+
+.inline{
+    display: inline;
+}
+.block{
+    display: block;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 4%;
+}
+.grid div{
+    text-align: center;
+}
+.principal{
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#registro{
+    display: flex;
+    margin-bottom: 2%;
+}
+#opciones{
+    display: flex; 
+}
+#opciones div{
+    margin-left: 16%;
+}
+#op2{
+    text-align: left;
+}
+#op2 label{
+    padding-bottom: 15%;
+}
+#op2 label input{
+    width: 16px;
+    height: 16px;
+}
+
+#registro p{
+    padding-left: 1%;
+}
+label{
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+}
+.derecha{
+    padding-left: 35%;
+}
+@media (max-width: 600px) {
+    .centro{
+        padding-top: 15%;
+        padding-left: 15%;
+        padding-right: 15%;
+    }    
+}
+@media (max-width: 900px) {
+    .redimensionar{
+        width: 13rem;
+        padding: 1%;
+    }
+}@media (max-width: 800px) {
+    .redimensionar{
+        width: 10rem;
+        padding: 1%;
+    }
+}
+@media (max-width: 600px) {
+    .redimensionar{
+        width: 7rem;
+        padding: 1%;
+    }
+    label{
+        font-size:small;
+    }
+    .inputs{
+        font-size:small;
+    }
+}
