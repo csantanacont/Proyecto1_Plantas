@@ -56,13 +56,18 @@
     header.inicio .h1 {
         font-size: 2.25rem;
     }
+    
+    .logoImagen {
+        width: 10rem;
+        height: 10rem;
+    }
     /* Ajusta los tamaños de los elementos en pantalla*/
     
     @media (min-width: 200px) {
         header.inicio {
             height: 100vh;
             min-height: 40rem;
-            padding-top: 4.5rem;
+            padding-top: 3.5rem;
             padding-bottom: 0;
         }
         header.inicio p {
@@ -74,7 +79,7 @@
         }
     }
     
-    @media (min-width: 1200px) {
+    @media (min-width: 1900px) {
         header.inicio h1,
         header.inicio .h1 {
             font-size: 3.5rem;
