@@ -2,3 +2,14 @@
 .seccion{
     padding: 3% 2% 0% 2%;
 }
+.iconos-tam{
+    height: 25px;
+    width: 25px;
+}
+
+td{
+    text-align: center;
+}
+thead tr th{
+    text-align: center;
+}
