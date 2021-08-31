@@ -1,0 +1,136 @@
+body {
+  overflow-x: hidden;
+}
+/* Estilos para ciertos IDs */
+
+#menu a {
+  font-size: 18px;
+  margin-right: 30px;
+}
+
+#navTitulo {
+  align-content: center;
+}
+
+#logo {
+  font-family: "Oswald";
+  margin-left: 50px;
+  font-size: 10px;
+}
+/* Estilos para ciertas clases */
+
+.texto {
+  font-family: "Oswald";
+}
+
+.botonColor {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+  font-weight: 500;
+}
+
+.botonColor:hover {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+
+.botonColor:focus {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+
+.formulario {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nav {
+  /* background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/1.jpg"); */
+  background-color: #ffffff;
+}
+/* Estilos para el diseño de la pagina de inicio*/
+
+header.inicio h1,
+header.inicio .h1 {
+  font-size: 2.25rem;
+}
+
+.logoImagen {
+  width: 10rem;
+  height: 10rem;
+}
+/* Ajusta los tamaños de los elementos en pantalla*/
+
+@media (min-width: 200px) {
+  header.inicio {
+    height: 100vh;
+    min-height: 40rem;
+    padding-top: 3.5rem;
+    padding-bottom: 0;
+  }
+  header.inicio p {
+    font-size: 1.15rem;
+  }
+  header.inicio h1,
+  header.inicio .h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  header.inicio h1,
+  header.inicio .h1 {
+    font-size: 3.5rem;
+  }
+}
+/* Estilos para el background de cada pagina */
+
+header.bg-inicio {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  /* background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/1.jpg"); */
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("../img/bg-inicio.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.bg-about {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  /* background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/1.jpg"); */
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(210, 244, 231, 0.8) 100%
+    ),
+    url("../img/bg-about.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+header.bg-login {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  /* background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../img/1.jpg"); */
+  background: linear-gradient(
+      to bottom,
+      rgba(210, 244, 231, 0.2) 0%,
+      rgba(210, 244, 231, 0.8) 100%
+    ),
+    url("../img/bg-login.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}

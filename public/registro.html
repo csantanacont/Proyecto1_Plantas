@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/stylesLR.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Noto+Sans+JP:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@&family=Rajdhani:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Registro</title>
+  </head>
+  <body>
+    <div class="principal">
+      <div id="registro">
+        <img src="../img/plantaDark.svg" alt="planta" class="tamLogo inline" />
+        <p class="inline">Registro</p>
+      </div>
+      <div>
+        <div class="grid">
+          <div>
+            <input
+              type="text"
+              placeholder="Nombre"
+              class="inputs inline redimensionar"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Apellido Paterno"
+              class="inputs inline redimensionar"
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Apellido Materno"
+              class="inputs inline redimensionar"
+            />
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            <input
+              type="text"
+              placeholder="Edad"
+              class="inputs inline redimensionar"
+            />
+          </div>
+          <div class="inline" id="opciones">
+            <div>
+              <label>Sexo:</label>
+            </div>
+            <div id="op2">
+              <label class="block"
+                ><input type="radio" name="sexo" />Mujer</label
+              >
+              <label class="block"
+                ><input type="radio" name="sexo" />Hombre</label
+              >
+              <label class="block"
+                ><input type="radio" name="sexo" />Otro</label
+              >
+            </div>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Correo electronico"
+              class="inputs inline redimensionar"
+            />
+          </div>
+        </div>
+        <div class="grid">
+          <div>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              class="inputs inline redimensionar"
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              placeholder="Verificar Contraseña"
+              class="inputs inline redimensionar"
+            />
+          </div>
+          <div class="derecha">
+            <input type="button" value="Registrarse" class="botones inline" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
