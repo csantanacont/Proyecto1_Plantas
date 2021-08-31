@@ -10,35 +10,12 @@
 .login{
     text-align: center;
 }
-.inputs:focus{
-    outline:none;
-    border-bottom: 3px solid green;
-} 
-.inputs{
-    border:none;
-    width: 20rem;
-    border-bottom: 2px solid black;
-    margin: 3% 3%;
-    padding: 2% 2%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: medium;
-}
 p{
     color: #278650;
     font-family: 'Cairo', sans-serif;
     font-size: xx-large; 
     margin: 0;  
     margin-bottom:15px;
-}
-.botones{
-    background-color: #278650;
-    border: 0;
-    width: 7rem;
-    height: 2rem;
-    border-radius: 5px;
-    color:white;
-    font-weight: 700;
-    font-family: 'Cairo', sans-serif;
 }
 .redimensionar{
     width: 15rem;
