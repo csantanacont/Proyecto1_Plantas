@@ -6,10 +6,22 @@
     <link href="./css/consultar.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/Simple-Slider.css">
+    <link rel="stylesheet" href="/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="./css/style.css">  
     <title>Consultar</title>
-</head>
+</head> 
 <body>
+
     <div class="seccion">
+        <div class="text-center mb-5 mt-3">
+            <h1 class = "animate__animated animate__pulse" style="color: #278650;">Consultar registros</h1>
+            <p>A continuación podras consultar todos los registros de tus plantas.</p><br>
+        </div>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -26,14 +38,92 @@
                         <td>1</td>
                         <td>Parotas</td>
                         <td>Árbol</td>
-                        <td><a href=""><img src="img/ver.svg" class="iconos-tam"></a></td>
+                        <td><a href="" data-bs-toggle="modal" data-bs-target="#verPlantaModal"><img src="img/ver.svg" class="iconos-tam"></a></td>
                         <td><a href=""><img src="img/editar.svg" class="iconos-tam"></a></td>
                         <td><a href=""><img src="img/eliminar.svg" class="iconos-tam"></a></td>
                     </tr>
             </tbody>
-        </table>
-        
-        
+        </table>     
     </div>
+  
+    <!-- Modal para visualizar datos de la planta-->
+    <div class="modal fade" id="verPlantaModal" tabindex="-1" aria-labelledby="modalPlanta" aria-hidden="true">
+        <div class="modal-dialog modal-xl" >
+          <div class="modal-content " >
+            <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section class="clean-block clean-product dark mt-5">
+                    <div class="container bg-transparent">
+                        <div class="block-content">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <h3>Tipo de la planta</h3>
+                                            <p style="font-size: small;">Especie: </p>
+                                            <div><p style="font-size: small;">Descripcion de la planta</p></div>
+                                            <div><p style="font-size: small;">Lugar de plantación:</p></div>
+                                            <div><p style="font-size: small;">Temporada:</p></div>
+                                            <div><p style="font-size: small;">Usos:</p>
+                                                </div>
+                                            <div><p style="font-size: small;">Fecha en que fue plantada:</p></div>
+                                            <div><p style="font-size: small;">Notas sobre el cuidado de la planta:</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- OPCION 1 IMAGENES-->
+                                        <div class="gallery">
+                                            <div id="plantaVisualizacion" class="vanilla-zoom">
+                                                <div class="zoomed-image"></div>
+                                                <div class="sidebar">
+                                                    <img class="img-fluid d-block small-preview" src="img/bg-about.jpg">
+                                                    <img class="img-fluid d-block small-preview" src="img/bg-inicio.jpeg">
+                                                    <img class="img-fluid d-block small-preview" src="img/bg-login.jpg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- OPCION 2 IMAGENES 
+                                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                            <div class="carousel-inner">
+                                              <div class="carousel-item active">
+                                                <img src="/img/bg-inicio.jpg" class="d-block w-100" alt="plantaImg1">
+                                              </div>
+                                              <div class="carousel-item">
+                                                <img src="/img/bg-inicio2.jpg" class="d-block w-100" alt="plantaImg2">
+                                              </div>
+                                              <div class="carousel-item">
+                                                <img src="/img/bg-inicio.jpeg" class="d-block w-100" alt="plantaImg3">
+                                              </div>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                              <span class="visually-hidden">Next</span>
+                                            </button>
+                                          </div>-->
+                                    </div>
+                                </div>
+                        </div>
+                    </div> 
+                </section>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/js/Simple-Slider.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/vanilla-zoom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
 </body>
 </html>

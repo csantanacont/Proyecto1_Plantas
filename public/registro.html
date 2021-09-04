@@ -1,104 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./css/formularios.css" rel="stylesheet"/>
-    <link href="./css/stylesLR.css" rel="stylesheet"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Noto+Sans+JP:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@&family=Rajdhani:wght@300&display=swap"
-      rel="stylesheet"
-    />
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Registro</title>
-  </head>
-  <body>
-    <div class="principal">
-      <div id="registro">
-        <img src="img/plantaDark.svg" alt="planta" class="tamLogo inline" />
-        <p class="inline">Registro</p>
-      </div>
-      <div>
-        <div class="grid">
-          <div>
-            <input
-              type="text"
-              placeholder="Nombre"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Apellido Paterno"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Apellido Materno"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-        </div>
-        <div class="grid">
-          <div>
-            <input
-              type="text"
-              placeholder="Edad"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-          <div class="inline" id="opciones">
-            <div>
-              <label>Sexo:</label>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <!-- <link rel="stylesheet" href="./css/formularios.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <img src="img/plantaDark.svg" alt="planta" class="tamLogo inline animate__animated animate__bounce" />
+                    <h1 class = "animate__animated animate__flipInY" style="color: #278650;">Registrarse</h1>
+                    <p>A continuación, proporciona los datos que se piden para registrarte.</p><br>
+                    <p style="font-size: small;">Los campos marcados con * son obligatorios</p>
+                </div>
+                <form style="border-color: #278650;">
+                    <div class="mb-3"><label class="form-label" for="nombreInput">Nombre:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="nombreInput"></div>
+                    <div class="mb-3"><label class="form-label" for="aPaternoInput">Apellido paterno:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="aPaternoInput"></div>
+                    <div class="mb-3"><label class="form-label" for="aMaternoInput">Apellido materno: </label><input class="form-control item cajasTexto shadow-none" type="text" id="aMaternoInput"></div>
+                    <div class="mb-3"><label class="form-label" for="emailInput">Email:*</label><input class="form-control item cajasTexto shadow-none" type="email" id="emailnput"></div>
+                    <div class="mb-3"><label class="form-label" for="passwordInput">Contraseña:*</label><input class="form-control item cajasTexto shadow-none" type="password" id="passwordInput"></div>
+                    <div class="mb-3"><label class="form-label" for="password2Input">Verificar contraseña:*</label><input class="form-control item cajasTexto shadow-none" type="password" id="password2Input"></div>
+                    <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Registrarse</button>
+                </form>
             </div>
-            <div id="op2">
-              <label class="block"
-                ><input type="radio" name="sexo" />Mujer</label
-              >
-              <label class="block"
-                ><input type="radio" name="sexo" />Hombre</label
-              >
-              <label class="block"
-                ><input type="radio" name="sexo" />Otro</label
-              >
-            </div>
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Correo electronico"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-        </div>
-        <div class="grid">
-          <div>
-            <input
-              type="password"
-              placeholder="Contraseña"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-          <div>
-            <input
-              type="password"
-              placeholder="Verificar Contraseña"
-              class="cajasTexto inline redimensionar"
-            />
-          </div>
-          <div class="derecha">
-            <input type="button" value="Registrarse" class="botones inline" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+        </section>
+    </main>
+
+
+    
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+</body>
+
 </html>
