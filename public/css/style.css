@@ -168,9 +168,9 @@ body{
 }
 
 #superior a, #inferior a{
-  top: 5px;
   display: block;
-  font-family: cairo;
+  font-family: "Oswald";
+  font-size: 35px;
   color: white;
   text-decoration: none;
 }
