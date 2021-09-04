@@ -8,20 +8,29 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <!-- <link rel="stylesheet" href="./css/formularios.css"> -->
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- <header class="bg-inicio">
-        
-    </header> -->
     <main>
+    <!--SideBar-->
+	
+		<div id="sidebar" class="afuera">
+		<div id="superior" class="sdf">
+			<img src="img/plantalight.svg">
+			<a href="agregarPlanta.html">Agregar planta</a>
+            <a href="consultar.html">Mis plantas</a>
+		</div>
+		<div id="inferior">
+			<a href="modificarUsuario.html">Configurar Cuenta</a>
+			<a href="index.html">Cerrar Sesion</a>
+		</div>
+	</div>	
         <section class="clean-block clean-form dark">
             <div class="container">
+                <div id="sidebar-btn" class="logo" style="margin-left: 5%; margin-top: 3%;"><img src="img/plantadark.svg"></div>
                 <div class="block-heading">
-                    <!-- <img src="img/plantaDark.svg" alt="planta" class="tamLogo inline animate__animated animate__bounce" /> -->
                     <h1 class = "animate__animated animate__pulse" style="color: #278650;">Registrar planta</h1>
                     <p>Registra una nueva planta con los datos solicitados</p><br>
                     <p style="font-size: small;">Los campos marcados con * son obligatorios</p>
@@ -33,11 +42,11 @@
                     <div class="mb-3"><label class="form-label" for="temporada">Temporada:*</label>
                         <select class="form-select cajasTexto shadow-none" id="llenar_escuela_cliente" required>
                             <option value="">Selecciona la temporada de tu planta</option>
-                                <option>Primavera-Verano</option>
-                                <option>Verano-Otoño</option>
-                                <option>Otoño-Invierno</option>
-                                <option>Invierno-Primavera</option>
-                                <option>Todo el año</option>
+                            <option>Primavera-Verano</option>
+                            <option>Verano-Otoño</option>
+                            <option>Otoño-Invierno</option>
+                            <option>Invierno-Primavera</option>
+                            <option>Todo el año</option>
                         </select>
                     </div>
                     <div class="mb-3"><label class="form-label" for="usos">Usos</label><input class="form-control item cajasTexto shadow-none" type="text" id="usos"></div>
@@ -45,7 +54,6 @@
                     <div class="mb-3"><label class="form-label" for="fecha">Fecha en que fue plantada:*</label><input class="form-control item cajasTexto shadow-none" type="date" id="fecha"></div>
                     <div class="mb-3"><label class="form-label" for="descripcion">Agrega una descripción sobre la planta:*</label><textarea class="cajasTexto" name="desc" id="descripcion" cols="50" rows="3"></textarea></div>
                     <div class="mb-3"><label class="form-label" for="notas">Agrega algunas notas para el cuidado de la planta</label><textarea class="cajasTexto" name="note" id="notas" cols="50" rows="3"></textarea></div>
-
                     <div class="mb-3"><label class="form-label" for="imagenes">A continuación, adjunta imagenes de tu planta:*</label>
                         <div class="mb-3">
                             <input class="form-control item cajasTexto shadow-none" type="file" accept="image/jpg" id="img1">
@@ -57,12 +65,12 @@
                 </form>
             </div>
         </section>
+
+       
     </main>
-
-
-    
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="./js/sidebar.js"></script>
 </body>
 
 </html>
