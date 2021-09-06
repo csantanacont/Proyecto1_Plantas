@@ -1,37 +1,82 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  </head>
 
-<body>
+  <body>
     <main>
-        <section class="clean-block clean-form dark">
-            <div class="container">
-                <div class="block-heading">
-                    <img src="img/plantaDark.svg" alt="planta" class="tamLogo inline animate__animated animate__bounce" />
-                    <h1 class = "animate__animated animate__flipInY"style="color: #278650;">Iniciar sesión</h1>
-                    <p  >Ingresa los datos que se piden a continuación para iniciar sesión</p>
-                </div>
-                <form style="border-color: #278650;">
-                    <div class="mb-3"></div>
-                    <div class="mb-3"><label class="form-label" for="emailLogin">Correo electrónico: </label><input class="form-control item cajasTexto shadow-none" type="email" id="emaiLogin"></div>
-                    <div class="mb-3"><label class="form-label" for="passwordLogin">Contraseña:</label><input class="form-control item cajasTexto shadow-none" type="password" id="passwordLogin"></div>
-                    <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Iniciar sesión</button>
-                </form>
+      <section class="clean-block clean-form dark">
+        <div class="container">
+          <div class="block-heading">
+            <img
+              src="img/plantaDark.svg"
+              alt="planta"
+              class="tamLogo inline animate__animated animate__bounce"
+            />
+            <h1
+              class="animate__animated animate__flipInY"
+              style="color: #278650"
+            >
+              Iniciar sesión
+            </h1>
+            <p>
+              Ingresa los datos que se piden a continuación para iniciar sesión
+            </p>
+          </div>
+          <form style="border-color: #278650">
+            <div class="mb-3"></div>
+            <div class="mb-3">
+              <label class="form-label" for="emailLogin"
+                >Correo electrónico: </label
+              ><input
+                class="form-control item cajasTexto shadow-none"
+                type="email"
+                id="emaiLogin"
+              />
             </div>
-        </section>
+            <div class="mb-3">
+              <label class="form-label" for="passwordLogin">Contraseña:</label
+              ><input
+                class="form-control item cajasTexto shadow-none"
+                type="password"
+                id="passwordLogin"
+              />
+            </div>
+            <button
+              class="btn btn-primary"
+              id="loginbtn"
+              style="background: #278650; border-color: #278650"
+            >
+              Iniciar sesión
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
+    <script src="login.js"></script>
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-</body>
-
+  </body>
 </html>
