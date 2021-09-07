@@ -8,26 +8,31 @@ firebase.initializeApp({
 var db = firebase.firestore();
 
 // consultar
-
+var user = document.getElementById("emaiLogin");
+var pass = document.getElementById("passwordLogin");
 document
   .getElementById("loginbtn")
-  .addEventListener("click", function comprobar() {
+  .addEventListener("click", function comprobar(user, pass) {
     //TODO cambiar los mensajes del login jaja
-    var user = document.getElementById("emaiLogin").value;
-    var pass = document.getElementById("passwordLogin").value;
-
     db.collection("users")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          if (doc.where("Correo", "==", user) == true) {
-            alert("Si hay registros");
-          }
-        });
+      .where("Correo", "==", user)
+      .where("pass", "==", pass)
+      .exists()
+      .then((doc) => {
+        if (doc.exists) {
+          /*
+          // Convert to City object
+          var city = doc.data();
+          // Use a City instance method
+          console.log(city.toString());
+          */
+          alert("...");
+        } else {
+          alert("No such document!");
+        }
       })
       .catch((error) => {
-        console.log("Error al traer los documentos:", error);
+        alert("Error getting document:", error);
       });
-    alert("Busqueda Finalziada");
     //TODO iniciar la sesion con ese usuario
   });
