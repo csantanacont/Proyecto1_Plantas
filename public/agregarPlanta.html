@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    
+    
+    <!-- FS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/firekey.js"></script>
 </head>
 
 <body>
@@ -19,12 +25,12 @@
 		<div id="sidebar" class="afuera">
 		<div id="superior" class="sdf">
 			<img src="img/plantalight.svg">
-			<a href="agregarPlanta.html">Agregar planta</a>
+			<!-- <a href="agregarPlanta.html">Agregar planta</a> -->
             <a href="consultar.html">Mis plantas</a>
 		</div>
 		<div id="inferior">
 			<a href="modificarUsuario.html">Configurar Cuenta</a>
-			<a href="index.html">Cerrar Sesion</a>
+			<a onclick="logout()">Cerrar Sesion</a>
 		</div>
 	</div>	
         <section class="clean-block clean-form dark">
@@ -35,12 +41,12 @@
                     <p>Registra una nueva planta con los datos solicitados</p><br>
                     <p style="font-size: small;">Los campos marcados con * son obligatorios</p>
                 </div>
-                <form style="border-color: #278650;">
+                <form id="form_addPlantas" style="border-color: #278650;">
                     <div class="mb-3"><label class="form-label" for="tipo">Tipo:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="tipo"></div>
                     <div class="mb-3"><label class="form-label" for="especie">Especie:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="especie"></div>
                     <div class="mb-3"><label class="form-label" for="lugar">Lugar de plantación:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="lugar"></div>
                     <div class="mb-3"><label class="form-label" for="temporada">Temporada:*</label>
-                        <select class="form-select cajasTexto shadow-none" id="llenar_escuela_cliente" required>
+                        <select class="form-select cajasTexto shadow-none" id="temporada" >
                             <option value="">Selecciona la temporada de tu planta</option>
                             <option>Primavera-Verano</option>
                             <option>Verano-Otoño</option>
@@ -57,8 +63,6 @@
                     <div class="mb-3"><label class="form-label" for="imagenes">A continuación, adjunta imagenes de tu planta:*</label>
                         <div class="mb-3">
                             <input class="form-control item cajasTexto shadow-none" type="file" accept="image/jpg" id="img1">
-                            <input class="form-control item cajasTexto shadow-none" type="file" accept="image/jpg" id="img2">
-                            <input class="form-control item cajasTexto shadow-none" type="file" accept="image/jpg" id="img3">
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Registrar planta</button>
@@ -68,9 +72,17 @@
 
        
     </main>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="./js/sidebar.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/alertas.js"></script>
+    <script src="./js/registrarPlantas.js"></script>
+    <script src="./js/logout.js"></script>
+    <!-- <script src="./js/modificarUsuario.js"></script> -->
+    
+    
+
 </body>
 
 </html>

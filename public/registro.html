@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+    <!-- FS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/firekey.js"></script>
+
 </head>
 
 <body>
@@ -22,28 +29,82 @@
                     <p>A continuación, proporciona los datos que se piden para registrarte.</p><br>
                     <p style="font-size: small;">Los campos marcados con * son obligatorios</p>
                 </div>
-                <form style="border-color: #278650;">
-                    <div class="mb-3"><label class="form-label" for="nombreInput">Nombre:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="nombreInput"></div>
-                    <div class="mb-3"><label class="form-label" for="aPaternoInput">Apellido paterno:*</label><input class="form-control item cajasTexto shadow-none" type="text" id="aPaternoInput"></div>
-                    <div class="mb-3"><label class="form-label" for="aMaternoInput">Apellido materno: </label><input class="form-control item cajasTexto shadow-none" type="text" id="aMaternoInput"></div>
-                    <div class="mb-3"><label class="form-label" for="emailInput">Email:*</label><input class="form-control item cajasTexto shadow-none" type="email" id="emailnput"></div>
-                    <div class="mb-3"><label class="form-label" for="passwordInput">Contraseña:*</label><input class="form-control item cajasTexto shadow-none" type="password" id="passwordInput"></div>
-                    <div class="mb-3"><label class="form-label" for="password2Input">Verificar contraseña:*</label><input class="form-control item cajasTexto shadow-none" type="password" id="password2Input"></div>
-                    <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Registrarse</button>
+                <form id="form_registro" style="border-color: #278650;" class="formulario__grupo formulario">
+                    <div id="grupo__nombre" class="mb-3">
+                        <label class="form-label" for="nombreInput">Nombre:*</label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control item cajasTexto shadow-none" type="text" name="nombre" id="nombreInput" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">El nombre solo puede contener letras y no puede quedar vacio.</p>
+                    </div>
+                    <div id="grupo__apaterno" class="mb-3">
+                        <label class="form-label" for="aPaternoInput">Apellido paterno:*</label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control item cajasTexto shadow-none" type="text" name="apaterno" id="aPaternoInput" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Los apellidos solo pueden contener letras y no pueden quedar vacios.</p>
+                    </div>
+                    <div id="grupo__amaterno"class="mb-3">
+                        <label class="form-label" for="aMaternoInput">Apellido materno*: </label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control item cajasTexto shadow-none" type="text" name="amaterno" id="aMaternoInput" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Los apellidos solo pueden contener letras y no pueden quedar vacios.</p>
+                    </div>
+                    <div id="grupo__fecha" class="mb-3">
+                           <div class="formulario__grupo-input">
+                                <label class="form-label" for="fechaNacimientoInput">Fecha de nacimiento*: </label>
+                                <input class="form-control item cajasTexto shadow-none" type="date" id="fechaNacimientoInput" max="2006-12-31" name="fecha" required>
+                           </div>
+                           <p class="formulario__input-error">La fecha no puede ser posterior al año 2006 y no puede quedar vacia.</p>
+                    </div>
+                    <div id="grupo__correo" class="mb-3">
+                        <label class="form-label" for="emailInput">Email:*</label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control item cajasTexto shadow-none" type="email" id="emailInput" name="correo" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">El correo debe tener la estructura correo@dominio.com y no puede quedar vacio.</p>
+                    </div>
+                    <div id="grupo__password" class="mb-3">
+                        <label class="form-label" for="passwordInput">Contraseña:*</label>
+                        <div class="formulario__grupo-input"> 
+                            <input class="form-control item cajasTexto shadow-none" type="password" id="passwordInput" name="password" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">La contraseña debe tener de 8 a 16 digitos.</p>
+                    </div>
+                    <div id="grupo__password2" class="mb-3">
+                        <label class="form-label" for="password2Input">Verificar contraseña:*</label>
+                        <div class="formulario__grupo-input">
+                            <input class="form-control item cajasTexto shadow-none" type="password" id="password2Input" name="password2" required>
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="formulario__input-error">Las contraseñas deben coincidir.</p>
+                    </div>
+                    <button id="regButton" class="btn btn-primary" style="background: #278650;border-color:#278650;">Registrarse</button>
                 </form>
             </div>
         </section>
     </main>
 
 
-    
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="/bootstrap/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase.js"></script> -->
+    <script src="./js/registrarUsuario.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="./js/validaRegistro.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/alertas.js"></script>
+    
+    
+    
+    
 </body>
 
 </html>

@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+    <!-- FS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/firekey.js"></script>
 </head>
 
 <body>
@@ -24,8 +29,8 @@
                 <a href="consultar.html">Mis plantas</a>
             </div>
             <div id="inferior">
-                <a href="modificarUsuario.html">Configurar Cuenta</a>
-                <a href="index.html">Cerrar Sesion</a>
+                <!-- <a href="modificarUsuario.html">Configurar Cuenta</a> -->
+                <a onclick="logout()">Cerrar Sesion</a>
             </div>
         </div>	
         <section class="clean-block clean-form dark">
@@ -40,10 +45,10 @@
                     <div class="mb-3"><label class="form-label" for="nombreInput">Nombre:</label><input class="form-control item cajasTexto shadow-none" type="text" id="nombreInput"></div>
                     <div class="mb-3"><label class="form-label" for="aPaternoInput">Apellido paterno:</label><input class="form-control item cajasTexto shadow-none" type="text" id="aPaternoInput"></div>
                     <div class="mb-3"><label class="form-label" for="aMaternoInput">Apellido materno: </label><input class="form-control item cajasTexto shadow-none" type="text" id="aMaternoInput"></div>
-                    <div class="mb-3"><label class="form-label" for="emailInput">Email:</label><input class="form-control item cajasTexto shadow-none" type="email" id="emailnput"></div>
+                    <div class="mb-3"><label class="form-label" for="fechaNacimientoInput">Fecha de nacimiento: </label><input class="form-control item cajasTexto shadow-none" type="date" id="fechaNacimientoInput"></div>
+                    <div class="mb-3"><label class="form-label" for="emailInput">Email:</label><input class="form-control item cajasTexto shadow-none" type="email" id="emailInput"></div>
                     <div class="mb-3"><label class="form-label" for="passwordInput">Contraseña:</label><input class="form-control item cajasTexto shadow-none" type="password" id="passwordInput"></div>
-                    <div class="mb-3"><label class="form-label" for="password2Input">Verificar contraseña:</label><input class="form-control item cajasTexto shadow-none" type="password" id="password2Input"></div>
-                    <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Guardar</button>
+                    <button id="btnEditarUsuario" type="button" class="btn btn-primary" style="background: #278650;border-color:#278650;">Guardar</button>
                 </form>
             </div>
         </section>
@@ -51,14 +56,13 @@
 
 
     
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
+    <!-- <script src="/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="./js/sidebar.js"></script>
+    <script src="./js/modificarUsuario.js"></script>
+    <script src="./js/logout.js"></script>
+    <script src="./js/alertas.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </body>
 
 </html>
