@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="./css/style.css">  
     <title>Consultar</title>
+
+    <!-- FS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/firekey.js"></script>
 </head> 
 
 <body>
@@ -24,14 +29,14 @@
             <div id="superior" class="sdf">
                 <img src="img/plantalight.svg">
                 <a href="agregarPlanta.html">Agregar planta</a>
-                <a href="consultar.html">Mis plantas</a>
+                <!-- <a href="consultar.html">Mis plantas</a> -->
             </div>
             <div id="inferior">
-                <a href="modificarUsuario.html">Configurar Cuenta</a>
-                <a href="index.html">Cerrar Sesion</a>
+                <a onclick="editarUsuario()" href="modificarUsuario.html">Configurar Cuenta</a>
+                <a onclick="logout()">Cerrar Sesion</a>
             </div>
         </div>	
-
+        
     <div class="seccion">
         <div id="sidebar-btn" class="logo" style="margin-left: 5%; margin-top: 1%;"><img src="img/plantadark.svg"></div>
         <div class="text-center mb-5 mt-3">
@@ -49,14 +54,14 @@
                     <th>Eliminar</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tabla">
                     <tr>  
                         <td>1</td>
                         <td>Parotas</td>
                         <td>Árbol</td>
                         <td><a data-bs-toggle="modal" data-bs-target="#verPlantaModal"><img src="img/ver.svg" class="iconos-tam"></a></td>
                         <td><a data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"><img src="img/editar.svg" class="iconos-tam"></a></td>
-                        <td><a><img src="img/eliminar.svg" class="iconos-tam" onclick="eliminar()"></a></td>
+                        <td><a><img src="img/eliminar.svg" class="iconos-tam"></a></td>
                     </tr>
             </tbody>
         </table>     
@@ -76,7 +81,7 @@
                             <div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div>
+                                        <div id="modalInfo">
                                             <h3>Tipo de la planta</h3>
                                             <p style="font-size: small;">Especie: </p>
                                             <div><p style="font-size: small;">Descripcion de la planta</p></div>
@@ -92,10 +97,8 @@
                                         <div class="gallery">
                                             <div id="plantaVisualizacion" class="vanilla-zoom">
                                                 <div class="zoomed-image"></div>
-                                                <div class="sidebar">
-                                                    <img class="img-fluid d-block small-preview" src="img/bg-about.jpg">
-                                                    <img class="img-fluid d-block small-preview" src="img/bg-inicio.jpeg">
-                                                    <img class="img-fluid d-block small-preview" src="img/bg-login.jpg">
+                                                <div id="imagenesInfo" class="sidebar">
+                                                    <img id="img1" class="img-fluid d-block small-preview" src="img/bg-about.jpg">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,12 +131,12 @@
                             <h1 class = "animate__animated animate__pulse" style="color: #278650;">Editar planta</h1>
                             <p>Edita los datos de tu planta</p><br>
                         </div>
-                        <form style="border-color: #278650;">
+                        <form id="modalEditarInfo" style="border-color: #278650;">
                             <div class="mb-3"><label class="form-label" for="tipo">Tipo:</label><input class="form-control item cajasTexto shadow-none" type="text" id="tipo"></div>
                             <div class="mb-3"><label class="form-label" for="especie">Especie:</label><input class="form-control item cajasTexto shadow-none" type="text" id="especie"></div>
                             <div class="mb-3"><label class="form-label" for="lugar">Lugar de plantación:</label><input class="form-control item cajasTexto shadow-none" type="text" id="lugar"></div>
                             <div class="mb-3"><label class="form-label" for="temporada">Temporada:</label>
-                                <select class="form-select cajasTexto shadow-none" id="llenar_escuela_cliente" required>
+                                <select class="form-select cajasTexto shadow-none" id="temporada" required>
                                     <option value="">Selecciona la temporada de tu planta</option>
                                     <option>Primavera-Verano</option>
                                     <option>Verano-Otoño</option>
@@ -154,7 +157,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Guardar</button>
+                <button id="btnEditarPlanta" class="btn btn-primary" style="background: #278650;border-color:#278650;">Guardar</button>
             </div>
         </div>
         </div>
@@ -166,15 +169,19 @@
 
 
     
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="/js/Simple-Slider.js"></script>
-    <script src="/js/theme.js"></script>
-    <script src="/js/vanilla-zoom.js"></script>
+    <script src="./js/Simple-Slider.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/vanilla-zoom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/alertas.js"></script>
     <script src="./js/sidebar.js"></script>
+    <script src="./js/logout.js"></script>
+    <script src="./js/consultarPlantas.js"></script>
+    
+
 </body>
 
 </html>
