@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    
-    <!-- FS -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="./js/firekey.js"></script>
 </head>
 
 <body>
@@ -26,22 +21,17 @@
                     <h1 class = "animate__animated animate__flipInY"style="color: #278650;">Iniciar sesión</h1>
                     <p  >Ingresa los datos que se piden a continuación para iniciar sesión</p>
                 </div>
-                <form id="form_login" style="border-color: #278650;">
+                <form style="border-color: #278650;">
                     <div class="mb-3"></div>
-                    <div class="mb-3"><label class="form-label" for="emailLogin">Correo electrónico: </label><input class="form-control item cajasTexto shadow-none" type="email" id="emailLogin"></div>
+                    <div class="mb-3"><label class="form-label" for="emailLogin">Correo electrónico: </label><input class="form-control item cajasTexto shadow-none" type="email" id="emaiLogin"></div>
                     <div class="mb-3"><label class="form-label" for="passwordLogin">Contraseña:</label><input class="form-control item cajasTexto shadow-none" type="password" id="passwordLogin"></div>
-                    <button id="loginBtn" class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Iniciar sesión</button>
+                    <button class="btn btn-primary" type="submit" style="background: #278650;border-color:#278650;">Iniciar sesión</button>
                 </form>
             </div>
         </section>
     </main>
-    <!-- <script src="/bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="./js/login.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/alertas.js"></script>
-    
-
 </body>
 
 </html>
