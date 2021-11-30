@@ -7,7 +7,7 @@
     <link href="./css/consultar.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
@@ -25,20 +25,19 @@
 <body>
     <!--SideBar-->
 	
-		<div id="sidebar" class="afuera">
-            <div id="superior" class="sdf">
-                <img src="img/plantalight.svg">
-                <a href="agregarPlanta.html">Agregar planta</a>
-                <!-- <a href="consultar.html">Mis plantas</a> -->
-            </div>
-            <div id="inferior">
-                <a onclick="editarUsuario()" href="modificarUsuario.html">Configurar Cuenta</a>
-                <a onclick="logout()">Cerrar Sesion</a>
-            </div>
-        </div>	
+    <div id="sidebar" class="afuera">
+        <div id="superior" class="sdf">
+            <img src="img/Mujer_ploantas.png">
+            <a href="consultar.html"><img src="img/Hojas.png" class="maceta">  Mis plantas</a>
+            <a href="agregarPlanta.html"><img src="img/Maceta.png" class="maceta">  Mis áreas</a>
+        </div>
+        <div id="inferior">
+            <a href="modificarUsuario.html">Configurar Cuenta</a> 
+            <a onclick="logout()">Cerrar Sesion</a>
+        </div>
+    </div>	
         
     <div class="seccion">
-        <div id="sidebar-btn" class="logo" style="margin-left: 5%; margin-top: 1%;"><img src="img/plantadark.svg"></div>
         <div class="text-center mb-5 mt-3">
             <h1 class = "animate__animated animate__pulse" style="color: #278650;">Consultar registros</h1>
             <p>A continuación podras consultar todos los registros de tus plantas.</p><br>

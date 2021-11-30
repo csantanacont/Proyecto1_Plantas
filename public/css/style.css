@@ -111,72 +111,65 @@ body{
 /*#################################################ESTILOS PARA SIDEBAR##################################################################*/
 /* ##################################################################################################################################################*/
 
-#sidebar-btn{
-  position: absolute;
-  left: 10px;
-  width: 80px;
-  height: 80px;
-  display: block;
-}
-
-.afuera::before{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.8);
-    z-index: 2;
-}
-
 #sidebar {
   position: fixed;
-  width: 300px;
+  width: 20%;
   height: 100%;
-  max-height: 1080px;
-  transition: all 500ms linear;
-  left: -300px;
   top: 0;
   z-index: 2;
-  background-color: #278650;
+  background-color: #FFFFFF;
 }
 
-.logo img, .sdf img{
-  width: 80px;
-  height: 80px;
+.sdf img{
+  width: 60%;
+  height: 60%;
   cursor: pointer;
 }
 
+a .maceta{
+  display: inline;
+  width: 10%;
+  height: 10%;
+  margin-right: 5%;
+}
 
 #superior{
   position: relative;
-  top: 10px;
-  width: 300px;
+  width: 100%;
   height: auto;
-  color: white;
   text-align: center;
-  margin-top: 12%;
 }
 
 #inferior{
   position: absolute;
-  width: 300px;
+  width: 100%;
   height: auto;
-  color: white;
   text-align: center;
   top: 80%;
 }
 
 #superior a, #inferior a{
   display: block;
-  font-family: "Oswald";
-  font-size: 35px;
-  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+  color: #05386b;
   text-decoration: none;
+  padding-top: 10%;
 }
 
-#sidebar.active{
-  left: 0px;
+#superior a{
+  text-align: left;
+  padding-left: 10%;
+}
+
+
+ #inferior a{
+  font-weight: normal;
+}
+
+#superior a:hover, #inferior a:hover{
+  opacity: 0.7;
 }
 
 /* ##################################################################################################################################################*/
