@@ -120,16 +120,20 @@ body{
   background-color: #FFFFFF;
 }
 
+.seccion{
+  padding: 3% 2% 0% 22%;
+}
 .sdf img{
   width: 60%;
   height: 60%;
   cursor: pointer;
 }
 
+
 a .maceta{
   display: inline;
-  width: 10%;
-  height: 10%;
+  width: 8%;
+  height: 8%;
   margin-right: 5%;
 }
 
@@ -151,11 +155,11 @@ a .maceta{
 #superior a, #inferior a{
   display: block;
   font-family: 'Montserrat', sans-serif;
-  font-size: x-large;
+  font-size: large;
   font-weight: bold;
   color: #05386b;
   text-decoration: none;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 #superior a{

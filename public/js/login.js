@@ -29,7 +29,7 @@ async function login() {
     if (sessionStorage.getItem('estadoCuenta') == 'true') {
         sessionStorage.setItem('idUsuario', idUsuario);
         await mensajeExito('Inicio de sesion exitoso');
-        setTimeout("redireccionar('./consultar.html')", 1500);
+        setTimeout("redireccionar('./misAreas.html')", 1500);
     } else {
        mensajeError( 'Los datos que ingresaste son incorrectos' );
        return;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="./css/consultar.css" rel="stylesheet" />
+    <link href="./css/areas.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/Simple-Slider.css">
     <link rel="stylesheet" href="/css/vanilla-zoom.min.css">
     <link rel="stylesheet" href="./css/style.css">  
-    <title>Consultar</title>
+    <title>Mis áreas</title>
 
     <!-- FS -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -23,6 +23,7 @@
 </head> 
 
 <body>
+
     <!--SideBar-->
     <div id="sidebar" class="afuera">
         <div id="superior" class="sdf">
@@ -34,88 +35,43 @@
             <a href="modificarUsuario.html">Configurar Cuenta</a> 
             <a onclick="logout()">Cerrar Sesion</a>
         </div>
-    </div>
-        
+    </div>	
+    
+    <!--Areas-->
     <div class="seccion">
         <div class="text-center mb-5 mt-3">
-            <h1 class = "animate__animated animate__pulse" style="color: #278650;">Consultar registros</h1>
-            <p>A continuación podras consultar todos los registros de tus plantas.</p><br>
+            <h1 class = "animate__animated animate__pulse" style="color: #278650;">Mis áreas</h1>
+            <p>A continuación podras consultar tu áreas</p><br>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Numero</th>
-                    <th>Especie</th>
-                    <th>Tipo de Planta</th> 
-                    <th>Ver</th>
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
-                </tr>
-            </thead>
-            <tbody id="tabla">
-                    <tr>  
-                        <td>1</td>
-                        <td>Parotas</td>
-                        <td>Árbol</td>
-                        <td><a data-bs-toggle="modal" data-bs-target="#verPlantaModal"><img src="img/ver.svg" class="iconos-tam"></a></td>
-                        <td><a data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"><img src="img/editar.svg" class="iconos-tam"></a></td>
-                        <td><img src="img/eliminar.svg" class="iconos-tam"  onclick="eliminar()"></td>
-                    </tr>
-            </tbody>
-        </table>     
+        <div class="areas">
+            <div class="area">
+                <div class="imgArea">
+                    <a href="consultar.html"><img src="img/regadera.png" alt="regadera"></a>
+                </div>
+                <div class="opcionesArea">
+                    <p class="nombreArea"> Nombre del Área</p>
+                    <div class="botonesArea">
+                        <div>
+                            <a data-bs-toggle="modal" data-bs-target="#modificarPlantaModal" ><img src="img/editar.svg" class="iconos-tam"> </a>
+                        </div>
+                        <div>
+                            <img src="img/eliminar.svg" class="iconos-tam" onclick="eliminar()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Div para agregar más áreas-->
+            <div>
+                <div class="centrado">
+                    <img src="img/icono-mas.png" alt="mas" class="masTam">
+                </div>
+            </div>
+
+        </div>
     </div>
   
-    <!-- Modal para visualizar datos de la planta-->
-    <div class="modal fade" id="verPlantaModal" tabindex="-1" aria-labelledby="modalPlanta" aria-hidden="true">
-        <div class="modal-dialog modal-xl" >
-          <div class="modal-content " >
-            <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <section class="clean-block clean-product dark mt-5">
-                    <div class="bg-transparent">
-                        <div class="block-content">
-                            <div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div id="modalInfo">
-                                            <h3>Tipo de la planta</h3>
-                                            <p style="font-size: small;">Especie: </p>
-                                            <div><p style="font-size: small;">Descripcion de la planta</p></div>
-                                            <div><p style="font-size: small;">Lugar de plantación:</p></div>
-                                            <div><p style="font-size: small;">Temporada:</p></div>
-                                            <div><p style="font-size: small;">Usos:</p></div>
-                                            <div><p style="font-size: small;">Fecha en que fue plantada:</p></div>
-                                            <div><p style="font-size: small;">Notas sobre el cuidado de la planta:</p></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <!-- OPCION 1 IMAGENES-->
-                                        <div class="gallery">
-                                            <div id="plantaVisualizacion" class="vanilla-zoom">
-                                                <div class="zoomed-image"></div>
-                                                <div id="imagenesInfo" class="sidebar">
-                                                    <img id="img1" class="img-fluid d-block small-preview" src="img/bg-about.jpg">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </section>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        </div>
-    </div>
 
-
-    <!-- Modal para editar registro de plantas -->
+    <!-- Modal para editar registro de areas -->
     <div class="modal fade" id="modificarPlantaModal" tabindex="-1" aria-labelledby="modalPlantaModificar" aria-hidden="true">
         <div class="modal-dialog modal-lg" >
           <div class="modal-content " >
@@ -126,8 +82,8 @@
                 <section class="clean-block clean-form dark">
                     <div>
                         <div class="block-heading">
-                            <h1 class = "animate__animated animate__pulse" style="color: #278650;">Editar planta</h1>
-                            <p>Edita los datos de tu planta</p><br>
+                            <h1 class = "animate__animated animate__pulse" style="color: #278650;">Editar área</h1>
+                            <p>Edita los datos de tu área</p><br>
                         </div>
                         <form id="modalEditarInfo" style="border-color: #278650;">
                             <div class="mb-3"><label class="form-label" for="tipo">Tipo:</label><input class="form-control item cajasTexto shadow-none" type="text" id="tipo"></div>
@@ -148,7 +104,6 @@
                             <div class="mb-3"><label class="form-label" for="fecha">Fecha en que fue plantada:</label><input class="form-control item cajasTexto shadow-none" type="date" id="fecha"></div>
                             <div class="mb-3"><label class="form-label" for="descripcion">Descripción sobre la planta:</label><textarea class="cajasTexto" name="desc" id="descripcion" cols="50" rows="3"></textarea></div>
                             <div class="mb-3"><label class="form-label" for="notas">Notas para el cuidado de la planta</label><textarea class="cajasTexto" name="note" id="notas" cols="50" rows="3"></textarea></div>
-        
                         </form>
                     </div>
                 </section>
@@ -160,7 +115,7 @@
         </div>
         </div>
     </div>
-    
+
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="./js/Simple-Slider.js"></script>
