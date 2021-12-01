@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Registrar área</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./js/firekey.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <!--SideBar-->
+      <div id="sidebar" class="afuera">
+        <div id="superior" class="sdf">
+          <img src="img/Mujer_ploantas.png" />
+          <a href="misAreas.html"
+            ><img src="img/Maceta.png" class="maceta" /> Mis áreas</a
+          >
+          <a href="consultar.html"
+            ><img src="img/Hojas.png" class="maceta" /> Mis plantas</a
+          >
+        </div>
+        <div id="inferior">
+          <a href="modificarUsuario.html">Configurar Cuenta</a>
+          <a onclick="logout()">Cerrar Sesion</a>
+        </div>
+      </div>
+
+      <section class="clean-block clean-form dark">
+        <div class="container">
+          <div class="block-heading">
+            <h1 class="animate__animated animate__pulse" style="color: #278650">
+              Registrar área
+            </h1>
+            <p>Registra una nueva área con los datos solicitados</p>
+            <br />
+            <p style="font-size: small">
+              Los campos marcados con * son obligatorios
+            </p>
+          </div>
+          <form id="form_addAreas" style="border-color: #278650">
+            <div class="mb-3">
+              <label class="form-label" for="tipo">Nombre:*</label
+              ><input
+                class="form-control item cajasTexto shadow-none"
+                type="text"
+                id="tipo"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="lugar"
+                >Espacio en el hogar:*</label
+              >
+              <select class="form-select cajasTexto shadow-none" id="ubicacion">
+                <option>Exterior</option>
+                <option>Interior</option>
+              </select>
+              <select class="form-select cajasTexto shadow-none" id="espacio">
+                <option value="">Selecciona el tipo de espacio</option>
+                <option>Balcón</option>
+                <option>Zotehuela</option>
+                <option>Patio</option>
+                <option>Terraza</option>
+                <option>Jardín</option>
+                <!--
+                  TODO Agregar un js que modifique los valores del select de
+                  acuerdo al tipo de espacio (exterior/interior) que
+                  sea seleccionado por el usuario
+                  TODO Encontrar la forma de poner ambos selects en la misma
+                  linea de manera horizontal -> [Exterior v]   [Tipo de Espacio v]
+                -->
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="especie"
+                >Dimensiones del espacio:*</label
+              ><input
+                class="form-control item cajasTexto shadow-none"
+                type="text"
+                id="especie"
+                placeholder="Alto (cm) - Ancho (cm) - Largo (cm)"
+              />
+              <!--
+                TODO Formato de ingreso por definir
+              -->
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="temporada"
+                >Tipo de Iluminación:*</label
+              >
+              <select class="form-select cajasTexto shadow-none" id="temporada">
+                <option value="">Selecciona el tipo de iluminación</option>
+                <option>Directa</option>
+                <option>Indirecta</option>
+                <option>Sombra</option>
+                <option>Resolana</option>
+              </select>
+            </div>
+            <!--
+              Por confirmar si se subiran fotos de las áreas
+              <div class="mb-3">
+              <label class="form-label" for="imagenes"
+                >A continuación, adjunta imagenes de tu planta:*</label
+              >
+              <div class="mb-3">
+                <input
+                  class="form-control item cajasTexto shadow-none"
+                  type="file"
+                  accept="image/jpg"
+                  id="img1"
+                />
+              </div>
+            </div>
+            -->
+            <button
+              class="btn btn-primary"
+              type="submit"
+              style="background: #278650; border-color: #278650"
+            >
+              Registrar área
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="./js/sidebar.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/alertas.js"></script>
+    <script src="./js/registrarPlantas.js"></script>
+    <script src="./js/logout.js"></script>
+    <!-- <script src="./js/modificarUsuario.js"></script> -->
+  </body>
+</html>
