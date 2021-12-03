@@ -117,112 +117,88 @@
             ></button>
           </div>
           <div class="modal-body">
+            <!--section-->
             <section class="clean-block clean-form dark">
-              <div>
-                <div class="block-heading">
-                  <h1
-                    class="animate__animated animate__pulse"
-                    style="color: #278650"
-                  >
-                    Editar área
-                  </h1>
-                  <p>Edita los datos de tu área</p>
-                  <br />
+                <div>
+                  <div class="block-heading">
+                    <h1 class="animate__animated animate__pulse" style="color: #278650">
+                      Editar área
+                    </h1>
+                    <p>Edita los datos de tu área</p>
+                    <br />
+                    <p style="font-size: small">
+                      Los campos marcados con * son obligatorios
+                    </p>
+                  </div>
+                  <form id="form_addAreas" style="border-color: #278650">
+                    <div class="mb-3">
+                      <label class="form-label" for="tipo">Nombre:*</label
+                      ><input
+                        class="form-control item cajasTexto shadow-none"
+                        type="text"
+                        id="nombreArea"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="lugar"
+                        >Espacio en el hogar:*</label
+                      >
+                      <select
+                        class="form-select cajasTexto shadow-none"
+                        id="ubicacionArea"
+                      >
+                        <option>Exterior</option>
+                        <option>Interior</option>
+                      </select>
+                      <select
+                        class="form-select cajasTexto shadow-none"
+                        id="espacioArea"
+                      >
+                        <option value="">Selecciona el tipo de espacio</option>
+                        <option>Balcón</option>
+                        <option>Zotehuela</option>
+                        <option>Patio</option>
+                        <option>Terraza</option>
+                        <option>Jardín</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="especie"
+                        >Dimensiones del espacio:*</label
+                      ><input
+                        class="form-control item cajasTexto shadow-none"
+                        type="text"
+                        id="altoArea"
+                        placeholder="Alto (metros)"
+                        style="width: 150px"
+                      />
+                      <input
+                        class="form-control item cajasTexto shadow-none"
+                        type="text"
+                        id="anchoArea"
+                        placeholder="Ancho (metros)"
+                        style="width: 150px"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label" for="temporada"
+                        >Tipo de Iluminación:*</label
+                      >
+                      <select
+                        class="form-select cajasTexto shadow-none"
+                        id="iluminacion"
+                      >
+                        <option value="">Selecciona el tipo de iluminación</option>
+                        <option>Directa</option>
+                        <option>Indirecta</option>
+                        <option>Sombra</option>
+                        <option>Resolana</option>
+                      </select>
+                    </div>
+                  </form>
                 </div>
-                <form id="modalEditarInfo" style="border-color: #278650">
-                  <div class="mb-3">
-                    <label class="form-label" for="tipo">Tipo:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="tipo"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="especie">Especie:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="especie"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="lugar"
-                      >Lugar de plantación:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="lugar"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="temporada">Temporada:</label>
-                    <select
-                      class="form-select cajasTexto shadow-none"
-                      id="temporada"
-                      required
-                    >
-                      <option value="">
-                        Selecciona la temporada de tu planta
-                      </option>
-                      <option>Primavera-Verano</option>
-                      <option>Verano-Otoño</option>
-                      <option>Otoño-Invierno</option>
-                      <option>Invierno-Primavera</option>
-                      <option>Todo el año</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="usos">Usos:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="usos"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="ubicacion"
-                      >Ubicación de la planta en casa:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="ubicacion"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="fecha"
-                      >Fecha en que fue plantada:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="date"
-                      id="fecha"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="descripcion"
-                      >Descripción sobre la planta:</label
-                    ><textarea
-                      class="cajasTexto"
-                      name="desc"
-                      id="descripcion"
-                      cols="50"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="notas"
-                      >Notas para el cuidado de la planta</label
-                    ><textarea
-                      class="cajasTexto"
-                      name="note"
-                      id="notas"
-                      cols="50"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                </form>
-              </div>
-            </section>
+              </section>
+            <!---->
           </div>
           <div class="modal-footer">
             <button
