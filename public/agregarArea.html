@@ -65,18 +65,24 @@
               ><input
                 class="form-control item cajasTexto shadow-none"
                 type="text"
-                id="tipo"
+                id="nombreArea"
               />
             </div>
             <div class="mb-3">
               <label class="form-label" for="lugar"
                 >Espacio en el hogar:*</label
               >
-              <select class="form-select cajasTexto shadow-none" id="ubicacion">
+              <select
+                class="form-select cajasTexto shadow-none"
+                id="ubicacionArea"
+              >
                 <option>Exterior</option>
                 <option>Interior</option>
               </select>
-              <select class="form-select cajasTexto shadow-none" id="espacio">
+              <select
+                class="form-select cajasTexto shadow-none"
+                id="espacioArea"
+              >
                 <option value="">Selecciona el tipo de espacio</option>
                 <option>Balcón</option>
                 <option>Zotehuela</option>
@@ -99,8 +105,14 @@
               ><input
                 class="form-control item cajasTexto shadow-none"
                 type="text"
-                id="especie"
-                placeholder="Alto (cm) - Ancho (cm) - Largo (cm)"
+                id="altoArea"
+                placeholder="Alto (metros)"
+              />
+              <input
+                class="form-control item cajasTexto shadow-none"
+                type="text"
+                id="anchoArea"
+                placeholder="Ancho (metros)"
               />
               <!--
                 TODO Formato de ingreso por definir
@@ -110,7 +122,10 @@
               <label class="form-label" for="temporada"
                 >Tipo de Iluminación:*</label
               >
-              <select class="form-select cajasTexto shadow-none" id="temporada">
+              <select
+                class="form-select cajasTexto shadow-none"
+                id="iluminacion"
+              >
                 <option value="">Selecciona el tipo de iluminación</option>
                 <option>Directa</option>
                 <option>Indirecta</option>
