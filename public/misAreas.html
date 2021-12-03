@@ -1,235 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="./css/areas.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="/css/Simple-Slider.css" />
-    <link rel="stylesheet" href="/css/vanilla-zoom.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Mis áreas</title>
 
-    <!-- FS -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="./js/firekey.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="./css/areas.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/css/Simple-Slider.css" />
+  <link rel="stylesheet" href="/css/vanilla-zoom.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Mis áreas</title>
 
-  <body>
-    <!--SideBar-->
-    <div id="sidebar" class="afuera">
-      <div id="superior" class="sdf">
-        <img src="img/Mujer_ploantas.png" />
-        <a href="misAreas.html"
-          ><img src="img/Maceta.png" class="maceta" /> Mis áreas</a
-        >
-        <a href="consultar.html"
-          ><img src="img/Hojas.png" class="maceta" /> Mis plantas</a
-        >
-      </div>
-      <div id="inferior">
-        <a href="modificarUsuario.html">Configurar Cuenta</a>
-        <a onclick="logout()">Cerrar Sesion</a>
-      </div>
+  <!-- FS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="./js/firekey.js"></script>
+</head>
+
+<body>
+  <!--SideBar-->
+  <div id="sidebar" class="afuera">
+    <div id="superior" class="sdf">
+      <img src="img/Mujer_ploantas.png" />
+      <a href="misAreas.html"><img src="img/Maceta.png" class="maceta" /> Mis áreas</a>
+      <a href="consultar.html"><img src="img/Hojas.png" class="maceta" /> Mis plantas</a>
     </div>
+    <div id="inferior">
+      <a href="modificarUsuario.html">Configurar Cuenta</a>
+      <a onclick="logout()">Cerrar Sesion</a>
+    </div>
+  </div>
 
-    <!--Areas-->
-    <div class="seccion">
-      <div class="text-center mb-5 mt-3">
-        <h1 class="animate__animated animate__pulse" style="color: #278650">
-          Mis áreas
-        </h1>
-        <p>A continuación podras consultar tu áreas</p>
-        <br />
-      </div>
-      <div class="areas">
-        <div class="area">
-          <div class="imgArea">
-            <a href="consultar.html"
-              ><img src="img/regadera.png" alt="regadera"
-            /></a>
-          </div>
-          <div class="opcionesArea">
-            <p class="nombreArea">Nombre del Área</p>
-            <div class="botonesArea">
-              <div>
-                <a data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"
-                  ><img src="img/editar.svg" class="iconos-tam" />
-                </a>
-              </div>
-              <div>
-                <img
-                  src="img/eliminar.svg"
-                  class="iconos-tam"
-                  onclick="eliminar()"
-                />
-              </div>
+  <!--Areas-->
+  <div class="seccion">
+    <div class="text-center mb-5 mt-3">
+      <h1 class="animate__animated animate__pulse" style="color: #278650">
+        Mis áreas
+      </h1>
+      <p>A continuación podras consultar tu áreas</p>
+      <br />
+    </div>
+    <div class="areas" id="seccionAreas">
+      <!-- <div class="area">
+        <div class="imgArea">
+          <a href="consultar.html"><img src="img/regadera.png" alt="regadera" id='plantasArea' /></a>
+        </div>
+        <div class="opcionesArea">
+          <p class="nombreArea">Nombre del Área</p>
+          <div class="botonesArea">
+            <div>
+              <a data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"><img src="img/editar.svg"
+                  class="iconos-tam" />
+              </a>
+            </div>
+            <div>
+              <img src="img/eliminar.svg" class="iconos-tam" onclick="eliminar()" />
             </div>
           </div>
-        </div>
-        <!--Div para agregar más áreas-->
-        <div>
-          <div class="centrado">
-            <a href="agregarArea.html">
-              <img src="img/icono-mas.png" alt="mas" class="masTam" />
-            </a>
-          </div>
-        </div>
+        </div> -->
+      </div>
+       <!--Div para agregar más áreas-->
+    <!-- <div>
+      <div class="centrado">
+        <a href="agregarArea.html">
+          <img src="img/icono-mas.png" alt="mas" class="masTam" />
+        </a>
+        <a>Agregar area</a>
       </div>
     </div>
+    </div> -->
+   
+  </div>
 
-    <!-- Modal para editar registro de areas -->
-    <div
-      class="modal fade"
-      id="modificarPlantaModal"
-      tabindex="-1"
-      aria-labelledby="modalPlantaModificar"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <!--section-->
-            <section class="clean-block clean-form dark">
-                <div>
-                  <div class="block-heading">
-                    <h1 class="animate__animated animate__pulse" style="color: #278650">
-                      Editar área
-                    </h1>
-                    <p>Edita los datos de tu área</p>
-                    <br />
-                    <p style="font-size: small">
-                      Los campos marcados con * son obligatorios
-                    </p>
-                  </div>
-                  <form id="form_addAreas" style="border-color: #278650">
-                    <div class="mb-3">
-                      <label class="form-label" for="tipo">Nombre:*</label
-                      ><input
-                        class="form-control item cajasTexto shadow-none"
-                        type="text"
-                        id="nombreArea"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="lugar"
-                        >Espacio en el hogar:*</label
-                      >
-                      <select
-                        class="form-select cajasTexto shadow-none"
-                        id="ubicacionArea"
-                      >
-                        <option>Exterior</option>
-                        <option>Interior</option>
-                      </select>
-                      <select
-                        class="form-select cajasTexto shadow-none"
-                        id="espacioArea"
-                      >
-                        <option value="">Selecciona el tipo de espacio</option>
-                        <option>Balcón</option>
-                        <option>Zotehuela</option>
-                        <option>Patio</option>
-                        <option>Terraza</option>
-                        <option>Jardín</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="especie"
-                        >Dimensiones del espacio:*</label
-                      ><input
-                        class="form-control item cajasTexto shadow-none"
-                        type="text"
-                        id="altoArea"
-                        placeholder="Alto (metros)"
-                        style="width: 150px"
-                      />
-                      <input
-                        class="form-control item cajasTexto shadow-none"
-                        type="text"
-                        id="anchoArea"
-                        placeholder="Ancho (metros)"
-                        style="width: 150px"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label" for="temporada"
-                        >Tipo de Iluminación:*</label
-                      >
-                      <select
-                        class="form-select cajasTexto shadow-none"
-                        id="iluminacion"
-                      >
-                        <option value="">Selecciona el tipo de iluminación</option>
-                        <option>Directa</option>
-                        <option>Indirecta</option>
-                        <option>Sombra</option>
-                        <option>Resolana</option>
-                      </select>
-                    </div>
-                  </form>
+  <!-- Modal para editar registro de areas -->
+  <div class="modal fade" id="modificarPlantaModal" tabindex="-1" aria-labelledby="modalPlantaModificar"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--section-->
+          <section class="clean-block clean-form dark">
+            <div>
+              <div class="block-heading">
+                <h1 class="animate__animated animate__pulse" style="color: #278650">
+                  Editar área
+                </h1>
+                <p>Edita los datos de tu área</p>
+                <br />
+                <p style="font-size: small">
+                  Los campos marcados con * son obligatorios
+                </p>
+              </div>
+              <form id="form_addAreas" style="border-color: #278650">
+                <div class="mb-3">
+                  <label class="form-label" for="tipo">Nombre:*</label><input
+                    class="form-control item cajasTexto shadow-none" type="text" required id="nombreArea" />
                 </div>
-              </section>
-            <!---->
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cerrar
-            </button>
-            <button
-              id="btnEditarPlanta"
-              class="btn btn-primary"
-              style="background: #278650; border-color: #278650"
-            >
-              Guardar
-            </button>
-          </div>
+                <div class="mb-3">
+                  <label class="form-label" for="lugar">Espacio en el hogar:*</label>
+                  <select class="form-select cajasTexto shadow-none" required id="ubicacionArea">
+                    <option>Exterior</option>
+                    <option>Interior</option>
+                  </select>
+                  <select class="form-select cajasTexto shadow-none" required id="espacioArea">
+                    <option value="">Selecciona el tipo de espacio</option>
+                    <option>Balcón</option>
+                    <option>Zotehuela</option>
+                    <option>Patio</option>
+                    <option>Terraza</option>
+                    <option>Jardín</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="especie">Dimensiones del espacio:*</label><input
+                    class="form-control item cajasTexto shadow-none" type="number" required min="1" id="altoArea"
+                    placeholder="Alto (metros)" style="width: 150px" />
+                  <input class="form-control item cajasTexto shadow-none" type="number" required min="1" id="anchoArea"
+                    placeholder="Ancho (metros)" style="width: 150px" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="temporada">Tipo de Iluminación:*</label>
+                  <select class="form-select cajasTexto shadow-none" required id="iluminacion">
+                    <option value="">
+                      Selecciona el tipo de iluminación
+                    </option>
+                    <option>Directa</option>
+                    <option>Indirecta</option>
+                    <option>Sombra</option>
+                    <option>Resolana</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary mt-5" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                  <button id="btnEditarArea" type="submit" class="btn btn-primary mt-5" style="background: #278650; border-color: #278650">
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+          <!---->
         </div>
+        
       </div>
     </div>
+  </div>
 
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="./js/Simple-Slider.js"></script>
-    <script src="./js/theme.js"></script>
-    <script src="./js/vanilla-zoom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/alertas.js"></script>
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/logout.js"></script>
-    <script src="./js/consultarPlantas.js"></script>
-  </body>
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+  <script src="./js/Simple-Slider.js"></script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/vanilla-zoom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/alertas.js"></script>
+  <script src="./js/sidebar.js"></script>
+  <script src="./js/logout.js"></script>
+  <script src="./js/consultarAreas.js"></script>
+</body>
+
 </html>

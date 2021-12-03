@@ -1,14 +1,29 @@
 var tabla = document.getElementById('tabla');
+var titulo = document.getElementById('titulo')
 var idUsuario = sessionStorage.getItem('idUsuario');
 var id;
 var cont = 0;
+//Creamos la instancia
+const valores = window.location.search;
+const urlParams = new URLSearchParams(valores);
+//Accedemos a los valores
+var nombreArea = urlParams.get('id');
 // const db = firebase.firestore();
 /*###########################################################################*/
 /*Consultar tabla de plantas*/
 document.onload = muestraRegistros();
 
 function muestraRegistros(){
-    db.collection('plantas').where("idDuenio", "==",idUsuario).get().then((querySnapshot)=>{
+    var imagenes = document.getElementById("imagenesInfo");
+    titulo.innerHTML=`
+    <h1 class="animate__animated animate__pulse" style="color: #278650">
+        Plantas en ${nombreArea}
+      </h1>
+      <p>
+        A continuación podras consultar todas las plantas que se encuentran en ${nombreArea}
+      </p>
+    `
+    db.collection('plantas').where("ubicacion", "==",nombreArea).get().then((querySnapshot)=>{
         tabla.innerHTML = ''
         querySnapshot.forEach((doc)=> {
             cont++;
@@ -28,7 +43,7 @@ function muestraRegistros(){
     })
 }
 
- /*################# MOSTRAR DETALLES DEL REGISTRO #################### */
+/*################# MOSTRAR DETALLES DEL REGISTRO #################### */
 
 function muestraDetalles(id){
      
@@ -156,9 +171,3 @@ function borrarPlanta(id){
         console.error("Error removing document: ", error);
     });
 }
-
-
-
-
-
-

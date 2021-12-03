@@ -1,7 +1,21 @@
 
 var formularioPlantas = document.getElementById('form_addPlantas');
 let idUsuario = sessionStorage.getItem('idUsuario');
-
+let ubicacion = document.getElementById('ubicacion');
+var img1 = document.getElementById("img1");
+var urlImagen;
+db.collection('areas').where("idUsuarioRef", "==",idUsuario).get().then((querySnapshot)=>{
+    ubicacion.innerHTML = ''
+    ubicacion.innerHTML =`
+    <option value="">Selecciona el area donde se encuentra la planta</option>
+    `
+    querySnapshot.forEach((doc)=> {
+        doc.id = id;
+        ubicacion.innerHTML+=`
+        <option>${doc.data().nombre}</option>
+        `
+    })
+})
 
                                      /* Registrar un nueva planta*/
 /*###################################################################################################*/
@@ -17,14 +31,7 @@ formularioPlantas.addEventListener('submit', async (e) => {
     var fecha = document.getElementById('fecha').value;
     var descripcion = document.getElementById('descripcion').value;
     var notas = document.getElementById('notas').value;
-    
-    var imagen1 = document.getElementById("img1").files[0];
-
-    // subirImagen({
-    //     img1: imagen1;
-    // })
-
-      
+    await subirImagen();
   db.collection("plantas").add({
         tipo: tipo,
         especie: especie,
@@ -36,7 +43,7 @@ formularioPlantas.addEventListener('submit', async (e) => {
         descripcion: descripcion,
         notas: notas,
         idDuenio: idUsuario,
-        img1: sessionStorage.getItem('urlImg')
+        img1: urlImagen
       })
       .then((docRef) => {
           console.log("Planta registrada con ID: ", docRef.id);
@@ -49,11 +56,25 @@ formularioPlantas.addEventListener('submit', async (e) => {
 });
 
 
-const subirImagen = async({imagen1}) => {
-    let storageRef = firebase.storage().ref().child(`images/${imagen1.name}`);
-    await storageRef.put(imagen1);
-    return storageRef;
+subirImagen = function () {
+    archivo = img1.files[0];
+    if(!img1){
+        return;
+    }else{
+    console.log(archivo.name);
+    var storageRef = defaultStorage.ref('/plantas/'+idUsuario+'/'+archivo.name);
+    var uploadTask = storageRef.put(archivo);
+    uploadTask.on('state-changed', function(snapshot) {
+    }, function (error) {
+        console.log(error)
+    }, function (){
+        storageRef.getDownloadURL().then((url) =>{
+            urlImagen = url;
+            setTimeout(8000);
+        });
+    });
 }
+};
 
 
 
