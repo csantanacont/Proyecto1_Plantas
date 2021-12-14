@@ -47,7 +47,7 @@
         <form id="form_addAreas" style="border-color: #278650">
           <div class="mb-3">
             <label class="form-label" for="tipo">Nombre:*</label><input class="form-control item cajasTexto shadow-none"
-              type="text" required id="nombreArea" />
+              type="text" required id="nombreArea" maxlength="20"/>
           </div>
           <div class="mb-3">
             <label class="form-label" for="lugar">Espacio en el hogar:*</label>
@@ -74,10 +74,10 @@
 
           <div class="mb-3">
             <label class="form-label" for="especie">Dimensiones del espacio:*</label><input
-              class="form-control item cajasTexto shadow-none" type="number" min="1" required id="altoArea" placeholder="Alto (metros)"
-              style="width: 150px" />
-            <input class="form-control item cajasTexto shadow-none" type="number" min="1" required id="anchoArea"
-              placeholder="Ancho (metros)" style="width: 150px" />
+              class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="altoArea" placeholder="Alto (metros)"
+              style="width: 150px"/>
+            <input class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="anchoArea"
+              placeholder="Ancho (metros)" style="width: 150px"/>
             <!--
                 TODO Formato de ingreso por definir
               -->
@@ -117,7 +117,6 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-  <script src="./js/sidebar.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./js/alertas.js"></script>
   <script src="./js/registrarArea.js"></script>

@@ -103,7 +103,7 @@
               <form id="form_addAreas" style="border-color: #278650">
                 <div class="mb-3">
                   <label class="form-label" for="tipo">Nombre:*</label><input
-                    class="form-control item cajasTexto shadow-none" type="text" required id="nombreArea" />
+                    class="form-control item cajasTexto shadow-none" type="text" required id="nombreArea" maxlength="20" />
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="lugar">Espacio en el hogar:*</label>
@@ -122,9 +122,9 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="especie">Dimensiones del espacio:*</label><input
-                    class="form-control item cajasTexto shadow-none" type="number" required min="1" id="altoArea"
+                    class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="altoArea"
                     placeholder="Alto (metros)" style="width: 150px" />
-                  <input class="form-control item cajasTexto shadow-none" type="number" required min="1" id="anchoArea"
+                  <input class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="anchoArea"
                     placeholder="Ancho (metros)" style="width: 150px" />
                 </div>
                 <div class="mb-3">

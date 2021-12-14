@@ -10,3 +10,89 @@ thead tr th{
     text-align: center;
     
 }
+
+/* ##################################################################################################################################################*/
+/*################################################# GRID ##################################################################*/
+/* ##################################################################################################################################################*/
+.grid-gallery {
+    display: grid;
+    min-height: 800px;
+    grid-auto-rows: 20%;
+    grid-gap: 1rem;
+    grid-auto-flow: row dense;
+    padding-bottom: 5%;
+  }
+  
+  @media all and (min-width: 320px) {
+    .grid-gallery {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media all and (min-width: 768px) {
+    .grid-gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media all and (min-width: 1024px) {
+    .grid-gallery {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  
+  .grid-gallery__item:nth-child(11n+1) {
+    grid-column: span 1;
+  }
+  
+  .grid-gallery__item:nth-child(11n+4) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  
+  .grid-gallery__item:nth-child(11n+6) {
+    grid-column: span 3;
+    grid-row: span 1;
+  }
+  
+  .grid-gallery__item:nth-child(11n+7) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  
+  .grid-gallery__item:nth-child(11n+8) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .grid-gallery__item:nth-child(11n+9) {
+    grid-row: span 3;
+  }
+  
+  .grid-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5%;
+  }
+  .grid-gallery__image:hover{
+      opacity: 0.3;
+  }
+
+  .grid-gallery__item{
+      position: relative;
+  }
+  
+  .info{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  
+
+
