@@ -68,7 +68,7 @@
             background-color: white;
             float: left;
             width: 45%;
-            height: 100%;
+            height: 105%;
             position: relative;
           "
         >
@@ -131,22 +131,24 @@
             />
           </div>
         </div>
-        <!--Monitoreo-->
+
+        <!--Evaluación cuando hay monitoreo-->
         <div
           style="
             margin: auto 20px;
             background-color: white;
             float: left;
             width: 47%;
-            height: 100%;
+            height: 105%;
           "
+          id="ev1"; 
         >
         <div class="flex-columnas">
           <div class="flex-columnas">
               <div><img src="./img/enredaderas.png" alt="planta" class="margin-0 tamPlanta"></div>
               <div><img src="./img/maceta.png" alt="planta" class="margin-0 tamMaceta"></div>
               <div><p class="fontPlanta">Tu planta es un retoño</p></div>
-              <!--CARRUSEL ESTA MAAAAAL-->
+              <!--CARRUSEL-->
               <!--Falta ajustar todo lo del carrusel-->
               <div class="carrusel">
                   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -186,7 +188,7 @@
                 <img src="./img/gota.png" alt="gota" class="indicadores">
               </div>
             </div>
-            <div>
+            <div class="flex-columnas2">
               <p class="negritas">Iluminación</p>
               <div>
                 <img src="./img/sol.png" alt="sol" class="indicadores">
@@ -196,14 +198,40 @@
                 <img src="./img/sol.png" alt="sol" class="indicadores">
               </div>
             </div>
-            <div class="flex-columnas2">
-              <p class="negritas">Otro</p>
+            <div>
+              <img src="./img/alerta.png" alt="alerta" class="p-r">
+              <p class="negritas" id="textoAlerta">El tamaño de tu planta está por debajo del promedio</p>
             </div>
           </div>
+          <div>
+            <p id="textoNota">Nota: Cinco elementos en cada categoría representan un buen cuidado</p>
+          </div>
           <div class="historial">
-            
+            <button
+              id="btnEditarPlanta"
+              type="button"
+              class="btn btn-primary"
+              style="background: #278650; border-color: #278650"
+            >
+            Ver historial 
+            </button>
           </div>
         </div> 
+      </div>
+      <!--Evualuación cuando no hay monitore-->
+      <div
+      style="
+        margin: auto 20px;
+        background-color: white;
+        float: left;
+        width: 47%;
+        height: 105%;"
+        id="ev2"; 
+      >
+        <div class="contentEv2">
+          <img src="./img/monitorear.png" alt="monitoreo" class="tamMonitoreo">
+          <p>Ingresa el monitoreo de tu planta para realizar la evaluación</p>
+        </div>
       </div>
       </div>
     </div>

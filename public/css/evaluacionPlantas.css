@@ -44,14 +44,13 @@
 
 .evaluacion{
     margin-top: 5%;
-    margin-bottom: 3%;
     border: 2px;
     border-color: rgba(163,163,163, 0.4);
     border-top-style: solid;
     border-bottom-style: solid;
     padding: 3%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 200px);
     grid-gap: 30px;
     grid-auto-rows: minmax(50px, auto);
 
@@ -64,4 +63,40 @@
 .indicadores{
     height: 25px;
     width: 25px;
+}
+
+#textoAlerta{
+    display: inline;
+    font-size: small;
+}
+
+.p-r{
+    padding-right: 2px;
+}
+
+#textoNota{
+    font-size: x-small;
+    color: rgba(163,163,163, 0.8);;
+}
+
+#ev1{
+    display: block;
+}
+
+#ev2{
+    display: none;
+}
+
+.contentEv2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tamMonitoreo{
+    height: 70px;
+    width: 70px;
+    margin-bottom: 4%;
 }

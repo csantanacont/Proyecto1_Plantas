@@ -76,7 +76,7 @@ thead tr th{
     border-radius: 5%;
   }
   .grid-gallery__image:hover{
-      opacity: 0.3;
+      opacity: 0.4;
   }
 
   .grid-gallery__item{
