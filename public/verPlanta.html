@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="./css/areas.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/evaluacionPlantas.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
@@ -59,14 +60,14 @@
           Nombre de la planta
         </h1>
       </div>
-      <div style="height: 85%; margin: 0 auto">
+      <div style="height: 85%; margin: 0 auto" class="flex">
         <!--Información de la planta-->
         <div
           style="
             margin: auto 20px;
             background-color: white;
             float: left;
-            width: 47%;
+            width: 45%;
             height: 100%;
             position: relative;
           "
@@ -139,7 +140,71 @@
             width: 47%;
             height: 100%;
           "
-        ></div>
+        >
+        <div class="flex-columnas">
+          <div class="flex-columnas">
+              <div><img src="./img/enredaderas.png" alt="planta" class="margin-0 tamPlanta"></div>
+              <div><img src="./img/maceta.png" alt="planta" class="margin-0 tamMaceta"></div>
+              <div><p class="fontPlanta">Tu planta es un retoño</p></div>
+              <!--CARRUSEL ESTA MAAAAAL-->
+              <!--Falta ajustar todo lo del carrusel-->
+              <div class="carrusel">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <p class="text-dark animate__animated animate__zoomIn">Cuida bien tus plantas</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="text-dark  animate__animated animate__zoomIn">No riegues mucho tu planta</p>
+                        </div>
+                        <div class="carousel-item">
+                            <p class="text-dark  animate__animated animate__zoomIn">Tu sulfato es el inadecuado</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="evaluacion">
+            <div class="flex-columnas2">
+              <p class="negritas">Estado de hojas</p>
+              <div>
+                <img src="./img/hoja.png" alt="hoja" class="indicadores">
+                <img src="./img/hoja.png" alt="hoja" class="indicadores">
+                <img src="./img/hoja.png" alt="hoja" class="indicadores">
+                <img src="./img/hoja.png" alt="hoja" class="indicadores">
+                <img src="./img/hoja.png" alt="hoja" class="indicadores">
+              </div>
+            </div>
+            <div class="flex-columnas2">
+              <p class="negritas">Frecuencia de riego</p>
+              <div>
+                <img src="./img/gota.png" alt="gota" class="indicadores">
+                <img src="./img/gota.png" alt="gota" class="indicadores">
+                <img src="./img/gota.png" alt="gota" class="indicadores">
+                <img src="./img/gota.png" alt="gota" class="indicadores">
+                <img src="./img/gota.png" alt="gota" class="indicadores">
+              </div>
+            </div>
+            <div>
+              <p class="negritas">Iluminación</p>
+              <div>
+                <img src="./img/sol.png" alt="sol" class="indicadores">
+                <img src="./img/sol.png" alt="sol" class="indicadores">
+                <img src="./img/sol.png" alt="sol" class="indicadores">
+                <img src="./img/sol.png" alt="sol" class="indicadores">
+                <img src="./img/sol.png" alt="sol" class="indicadores">
+              </div>
+            </div>
+            <div class="flex-columnas2">
+              <p class="negritas">Otro</p>
+            </div>
+          </div>
+          <div class="historial">
+            
+          </div>
+        </div> 
+      </div>
       </div>
     </div>
 
@@ -289,7 +354,7 @@
         </div>
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="./js/Simple-Slider.js"></script>
