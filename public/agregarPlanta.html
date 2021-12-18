@@ -52,15 +52,15 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="especie">Especie:*</label><input
-              class="form-control item cajasTexto shadow-none" type="text" id="especie" />
+              class="form-control item cajasTexto shadow-none" type="text" id="especie" required/>
           </div>
           <div class="mb-3">
             <label class="form-label" for="lugar">Lugar de plantación:*</label>
-            <input class="form-control item cajasTexto shadow-none" type="text" id="lugar" />
+            <input class="form-control item cajasTexto shadow-none" type="text" id="lugar" required/>
           </div>
           <div class="mb-3">
             <label class="form-label" for="temporada">Temporada:*</label>
-            <select class="form-select cajasTexto shadow-none" id="temporada">
+            <select class="form-select cajasTexto shadow-none" id="temporada" required>
               <option value="">Selecciona la temporada de tu planta</option>
               <option>Primavera-Verano</option>
               <option>Verano-Otoño</option>
@@ -81,11 +81,11 @@
           </div>
           <div class="mb-3">
             <label class="form-label" for="fecha">Fecha en que fue plantada:*</label><input
-              class="form-control item cajasTexto shadow-none" type="date" id="fecha" />
+              class="form-control item cajasTexto shadow-none" type="date" id="fecha"  required/>
           </div>
           <div class="mb-3">
             <label class="form-label" for="descripcion">Agrega una descripción sobre la planta:*</label><textarea
-              class="cajasTexto" name="desc" id="descripcion" cols="50" rows="3"></textarea>
+              class="cajasTexto" name="desc" id="descripcion" cols="50" rows="3" required></textarea>
           </div>
           <div class="mb-3">
             <label class="form-label" for="notas">Agrega algunas notas para el cuidado de la planta</label><textarea
@@ -94,10 +94,10 @@
           <div class="mb-3">
             <label class="form-label" for="imagenes">A continuación, adjunta imagenes de tu planta:*</label>
             <div class="mb-3">
-              <input class="form-control item cajasTexto shadow-none" type="file" accept="image/jpg" id="img1" />
+              <input class="form-control item cajasTexto shadow-none" type="file" accept="image/*" id="img1" required/>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit" style="background: #278650; border-color: #278650">
+          <button class="btn btn-primary" id='btnRegistrarPlanta' type="submit" style="background: #278650; border-color: #278650">
             Registrar planta
           </button>
         </form>

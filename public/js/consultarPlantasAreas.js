@@ -34,7 +34,7 @@ function muestraRegistros(){
                         <td>${cont}</td>
                         <td>${doc.data().especie}</td>
                         <td>${doc.data().tipo}</td>
-                        <td><a onclick="muestraDetalles('${doc.id}')" data-bs-toggle="modal" data-bs-target="#verPlantaModal"><img src="img/ver.svg" class="iconos-tam"></a></td>
+                        <td><a href="verPlanta.html?id=${doc.id}"><img src="img/ver.svg" class="iconos-tam"></a></td>
                         <td><a onclick="editarPlanta('${doc.id}')" data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"><img src="img/editar.svg" class="iconos-tam"></a></td>
                         <td><a><img src="img/eliminar.svg" class="iconos-tam" onclick="eliminar('${doc.id}')"></a></td>
                 </tr>

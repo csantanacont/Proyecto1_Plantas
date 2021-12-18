@@ -21,7 +21,7 @@ async function eliminar(id){
         if (result.isDenied) {
           borrarPlanta(id);
           notificacionBorrar.fire('Eliminado', '', 'success').then(() => {
-            muestraRegistros();
+            window.location.href = "./consultar.html"
           })
         } 
     })    

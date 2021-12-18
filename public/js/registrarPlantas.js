@@ -1,9 +1,24 @@
 
 var formularioPlantas = document.getElementById('form_addPlantas');
+var btnAgregarPlanta = document.getElementById('btnRegistrarPlanta');
 let idUsuario = sessionStorage.getItem('idUsuario');
 let ubicacion = document.getElementById('ubicacion');
 var img1 = document.getElementById("img1");
 var urlImagen;
+// Maximizamos la fecha
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1;
+var yyyy = today.getFullYear();
+if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("fecha").setAttribute("max", today);
+
 db.collection('areas').where("idUsuarioRef", "==",idUsuario).get().then((querySnapshot)=>{
     ubicacion.innerHTML = ''
     ubicacion.innerHTML =`
@@ -21,7 +36,7 @@ db.collection('areas').where("idUsuarioRef", "==",idUsuario).get().then((querySn
 /*###################################################################################################*/
 
 formularioPlantas.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     var tipo = document.getElementById('tipo').value;
     var especie = document.getElementById('especie').value;
     var lugar = document.getElementById('lugar').value;
@@ -31,6 +46,8 @@ formularioPlantas.addEventListener('submit', async (e) => {
     var fecha = document.getElementById('fecha').value;
     var descripcion = document.getElementById('descripcion').value;
     var notas = document.getElementById('notas').value;
+    
+    
     await subirImagen();
   db.collection("plantas").add({
         tipo: tipo,

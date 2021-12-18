@@ -1,575 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="./css/areas.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/evaluacionPlantas.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="/css/Simple-Slider.css" />
-    <link rel="stylesheet" href="/css/vanilla-zoom.min.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Mis áreas</title>
 
-    <!-- FS -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="./js/firekey.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="./css/areas.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/evaluacionPlantas.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="/css/Simple-Slider.css" />
+  <link rel="stylesheet" href="/css/vanilla-zoom.min.css" /> -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Mis áreas</title>
 
-  <body>
-    <!--SideBar-->
-    <div id="sidebar" class="afuera">
-      <div id="superior" class="sdf">
-        <img src="img/Mujer_ploantas.png" />
-        <a href="misAreas.html"
-          ><img src="img/Maceta.png" class="maceta" /> Mis áreas</a
-        >
-        <a href="consultar.html"
-          ><img src="img/Hojas.png" class="maceta" /> Mis plantas</a
-        >
-      </div>
-      <div id="inferior">
-        <a href="modificarUsuario.html">Configurar Cuenta</a>
-        <a onclick="logout()">Cerrar Sesion</a>
-      </div>
+  <!-- FS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="./js/firekey.js"></script>
+</head>
+
+<body>
+  <!--SideBar-->
+  <div id="sidebar" class="afuera">
+    <div id="superior" class="sdf">
+      <img src="img/Mujer_ploantas.png" />
+      <a href="misAreas.html"><img src="img/Maceta.png" class="maceta" /> Mis áreas</a>
+      <a href="consultar.html"><img src="img/Hojas.png" class="maceta" /> Mis plantas</a>
     </div>
+    <div id="inferior">
+      <a href="modificarUsuario.html">Configurar Cuenta</a>
+      <a onclick="logout()">Cerrar Sesion</a>
+    </div>
+  </div>
 
-    <div class="seccion" style="height: 95%">
-      <div class="text-center mb-5 mt-3">
-        <h1 class="animate__animated animate__pulse" style="color: #278650">
-          Nombre de la planta
-        </h1>
-      </div>
-      <div style="height: 85%; margin: 0 auto" class="flex">
-        <!--Información de la planta-->
-        <div
-          style="
+  <div class="seccion" style="height: 95%">
+    <div class="text-center mb-5 mt-3" id="nombrePlantaTitulo">
+      <h1 class="animate__animated animate__pulse" style="color: #278650">
+        Nombre de la planta
+      </h1>
+    </div>
+    <div style="height: 85%; margin: 0 auto" class="flex">
+      <!--Información de la planta-->
+      <div style="
             margin: auto 20px;
             background-color: white;
             float: left;
             width: 45%;
             height: 105%;
             position: relative;
-          "
-        >
-          <div class="col-md-6">
-            <div id="modalInfo">
-              <h3>Tipo de la planta</h3>
-              <p style="font-size: small">Especie:</p>
-              <div>
-                <p style="font-size: small">Descripcion de la planta</p>
-              </div>
-              <div>
-                <p style="font-size: small">Lugar de plantación:</p>
-              </div>
-              <div>
-                <p style="font-size: small">Temporada:</p>
-              </div>
-              <div>
-                <p style="font-size: small">Usos:</p>
-              </div>
-              <div>
-                <p style="font-size: small">Fecha en que fue plantada:</p>
-              </div>
-              <div>
-                <p style="font-size: small">
-                  Notas sobre el cuidado de la planta:
-                </p>
-              </div>
+          " id="infoPlanta">
+        <!-- <div class="col-md-6">
+          <div id="modalInfo">
+            <h3>Tipo de la planta</h3>
+            <p style="font-size: small">Especie:</p>
+            <div>
+              <p style="font-size: small">Descripcion de la planta</p>
+            </div>
+            <div>
+              <p style="font-size: small">Lugar de plantación:</p>
+            </div>
+            <div>
+              <p style="font-size: small">Temporada:</p>
+            </div>
+            <div>
+              <p style="font-size: small">Usos:</p>
+            </div>
+            <div>
+              <p style="font-size: small">Fecha en que fue plantada:</p>
+            </div>
+            <div>
+              <p style="font-size: small">
+                Notas sobre el cuidado de la planta:
+              </p>
             </div>
           </div>
-          <a
-            onclick="editarPlanta('${doc.id}')"
-            data-bs-toggle="modal"
-            data-bs-target="#modificarPlantaModal"
-            ><img
-              src="img/editar.svg"
-              style="
+        </div>
+
+        <a onclick="editarPlanta('${doc.id}')" data-bs-toggle="modal" data-bs-target="#modificarPlantaModal"><img
+            src="img/editar.svg" style="
                 position: absolute;
                 bottom: 0px;
                 right: 0px;
                 margin: 10px;
                 margin-right: 50px;
-              "
-              class="iconos-tam"
-          /></a>
-          <!--Asignarle la acción en el back-->
-          <a
-            ><img
-              style="position: absolute; bottom: 0px; right: 0px; margin: 10px"
-              src="img/eliminar.svg"
-              class="iconos-tam"
-              onclick="eliminar('${doc.id}')"
-          /></a>
-          <!--Asignarle la acción en el back-->
-          <div id="imagenesInfo" class="sidebar">
-            <img
-              id="img1"
-              style="width: 100px"
-              class="img-fluid d-block small-preview"
-              src="./img/Maceta.png"
-            />
-          </div>
-        </div>
+              " class="iconos-tam" /></a>
+        <!--Asignarle la acción en el back-->
+        <!-- <a><img style="position: absolute; bottom: 0px; right: 0px; margin: 10px" src="img/eliminar.svg"
+            class="iconos-tam" onclick="eliminar('${doc.id}')" /></a> -->
+        <!--Asignarle la acción en el back-->
+        <!-- <div id="imagenesInfo" class="sidebar">
+          <img id="img1" style="width: 100px" class="img-fluid d-block small-preview" src="./img/Maceta.png" />
+        </div> -->
+      </div>
 
-        <!--Evaluación cuando hay monitoreo-->
-        <div
-          style="
-            margin: auto 20px;
-            background-color: white;
-            float: left;
-            width: 47%;
-            height: 105%;
-          "
-          id="ev1"
-          ;
-        >
+      <!--Evaluación cuando hay monitoreo-->
+      <div style="margin: auto 20px; background-color: white; float: left; width: 47%; height: 105%;" id="ev1" ;>
+        <div class="flex-columnas">
           <div class="flex-columnas">
-            <div class="flex-columnas">
-              <div>
-                <img
-                  src="./img/enredaderas.png"
-                  alt="planta"
-                  class="margin-0 tamPlanta"
-                />
-              </div>
-              <div>
-                <img
-                  src="./img/maceta.png"
-                  alt="planta"
-                  class="margin-0 tamMaceta"
-                />
-              </div>
-              <div><p class="fontPlanta">Tu planta es un retoño</p></div>
-              <!--CARRUSEL-->
-              <!--Falta ajustar todo lo del carrusel-->
-              <div class="carrusel">
-                <div
-                  id="carouselExampleIndicators"
-                  class="carousel slide"
-                  data-bs-ride="carousel"
-                >
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <p class="text-dark animate__animated animate__zoomIn">
-                        Cuida bien tus plantas
-                      </p>
-                    </div>
-                    <div class="carousel-item">
-                      <p class="text-dark animate__animated animate__zoomIn">
-                        No riegues mucho tu planta
-                      </p>
-                    </div>
-                    <div class="carousel-item">
-                      <p class="text-dark animate__animated animate__zoomIn">
-                        Tu sulfato es el inadecuado
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="evaluacion">
-              <div class="flex-columnas2">
-                <p class="negritas">Estado de hojas</p>
-                <div>
-                  <img src="./img/hoja.png" alt="hoja" class="indicadores" />
-                  <img src="./img/hoja.png" alt="hoja" class="indicadores" />
-                  <img src="./img/hoja.png" alt="hoja" class="indicadores" />
-                  <img src="./img/hoja.png" alt="hoja" class="indicadores" />
-                  <img src="./img/hoja.png" alt="hoja" class="indicadores" />
-                </div>
-              </div>
-              <div class="flex-columnas2">
-                <p class="negritas">Frecuencia de riego</p>
-                <div>
-                  <img src="./img/gota.png" alt="gota" class="indicadores" />
-                  <img src="./img/gota.png" alt="gota" class="indicadores" />
-                  <img src="./img/gota.png" alt="gota" class="indicadores" />
-                  <img src="./img/gota.png" alt="gota" class="indicadores" />
-                  <img src="./img/gota.png" alt="gota" class="indicadores" />
-                </div>
-              </div>
-              <div class="flex-columnas2">
-                <p class="negritas">Iluminación</p>
-                <div>
-                  <img src="./img/sol.png" alt="sol" class="indicadores" />
-                  <img src="./img/sol.png" alt="sol" class="indicadores" />
-                  <img src="./img/sol.png" alt="sol" class="indicadores" />
-                  <img src="./img/sol.png" alt="sol" class="indicadores" />
-                  <img src="./img/sol.png" alt="sol" class="indicadores" />
-                </div>
-              </div>
-              <div>
-                <img src="./img/alerta.png" alt="alerta" class="p-r" />
-                <p class="negritas" id="textoAlerta">
-                  El tamaño de tu planta está por debajo del promedio
-                </p>
-              </div>
+            <div>
+              <img src="./img/enredaderas.png" alt="planta" class="margin-0 tamPlanta" />
             </div>
             <div>
-              <p id="textoNota">
-                Nota: Cinco elementos en cada categoría representan un buen
-                cuidado
-              </p>
+              <img src="./img/maceta.png" alt="planta" class="margin-0 tamMaceta" />
             </div>
-            <div class="historial">
-              <a
-                onclick="editarPlanta('${doc.id}')"
-                data-bs-toggle="modal"
-                data-bs-target="#agregarRegistroModal"
-                ><button
-                  id="btnRegistroMonitoreo"
-                  type="button"
-                  class="btn btn-primary"
-                  style="background: #278650; border-color: #278650"
-                >
-                  Agregar Registro
-                </button></a
-              >
-              <a href="historialMonitoreo.html">
-                <button
-                  class="btn btn-primary"
-                  style="background: #278650; border-color: #278650"
-                >
-                  Ver historial
-                </button>
-              </a>
+            <div>
+              <p class="fontPlanta">Evaluacion de tu planta</p>
+            </div>
+            <!--CARRUSEL-->
+            <!--Falta ajustar todo lo del carrusel-->
+            <div class="carrusel">
+              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="consejos">
+                  <div class="carousel-item active">
+                    <p class="text-dark animate__animated animate__zoomIn">
+                      Cuida bien tus plantas
+                    </p>
+                  </div>
+                  <div class="carousel-item">
+                    <p class="text-dark animate__animated animate__zoomIn">
+                      No riegues mucho tu planta
+                    </p>
+                  </div>
+                  <div class="carousel-item">
+                    <p class="text-dark animate__animated animate__zoomIn">
+                      Tu sulfato es el inadecuado
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+
+          <div class="evaluacion" id="evaluacion">
+            <div class="flex-columnas2">
+              <p class="negritas">Estado de hojas</p>
+              <div id="estadoHojas">
+                <img src="./img/hoja.png" alt="hoja" class="indicadores" />
+                <img src="./img/hoja.png" alt="hoja" class="indicadores" />
+                <img src="./img/hoja.png" alt="hoja" class="indicadores" />
+                <img src="./img/hoja.png" alt="hoja" class="indicadores" />
+                <img src="./img/hoja.png" alt="hoja" class="indicadores" />
+              </div>
+            </div>
+            <div class="flex-columnas2">
+              <p class="negritas">Frecuencia de riego</p>
+              <div id="frecuenciaRiego">
+                <img src="./img/gota.png" alt="gota" class="indicadores" />
+                <img src="./img/gota.png" alt="gota" class="indicadores" />
+                <img src="./img/gota.png" alt="gota" class="indicadores" />
+                <img src="./img/gota.png" alt="gota" class="indicadores" />
+                <img src="./img/gota.png" alt="gota" class="indicadores" />
+              </div>
+            </div>
+            <div class="flex-columnas2">
+              <p class="negritas">Iluminación</p>
+              <div id="iluminacion">
+                <img src="./img/sol.png" alt="sol" class="indicadores" />
+                <img src="./img/sol.png" alt="sol" class="indicadores" />
+                <img src="./img/sol.png" alt="sol" class="indicadores" />
+                <img src="./img/sol.png" alt="sol" class="indicadores" />
+                <img src="./img/sol.png" alt="sol" class="indicadores" />
+              </div>
+            </div>
+            <div id="tamanioError">
+              <img src="./img/alerta.png" alt="alerta" class="p-r" />
+              <p class="negritas" id="textoAlerta">
+                El tamaño de tu planta está por debajo del promedio
+              </p>
+            </div>
+            <div id="tamanioBien" style="display: none;">
+              <img src="./img/palomita.png" alt="alerta" class="p-r" />
+              <p class="negritas" id="textoAlerta">
+                El tamaño de tu planta está dentro del promedio
+              </p>
+            </div>
+          </div>
+          
+          <div>
+            <p id="textoNota">
+              Nota: Cinco elementos en cada categoría representan un buen
+              cuidado
+            </p>
+          </div>
+          <div class="historial">
+            <a data-bs-toggle="modal" data-bs-target="#agregarRegistroModal"><button
+                id="btnEditMonitoreo" type="button" class="btn btn-primary"
+                style="background: #278650; border-color: #278650">
+                Editar Registro
+              </button></a>
+            <a>
+              <button id="btnVerHistorial" class="btn btn-primary" style="background: #278650; border-color: #278650">
+                Ver historial
+              </button>
+            </a>
+          </div>
         </div>
-        <!--Evualuación cuando no hay monitore-->
-        <div
-          style="
+      </div>
+      <!--Evualuación cuando no hay monitore-->
+      <div style="
             margin: auto 20px;
             background-color: white;
             float: left;
             width: 47%;
             height: 105%;
-          "
-          id="ev2"
-          ;
-        >
-          <div class="contentEv2">
-            <img
-              src="./img/monitorear.png"
-              alt="monitoreo"
-              class="tamMonitoreo"
-            />
-            <p>Ingresa el monitoreo de tu planta para realizar la evaluación</p>
+          " id="ev2" ;>
+        <div class="contentEv2">
+          <img src="./img/monitorear.png" alt="monitoreo" class="tamMonitoreo" />
+          <p>Ingresa el monitoreo de tu planta para realizar la evaluación</p>
+          <div class="historial">
+            <a onclick="editarPlanta('${doc.id}')" data-bs-toggle="modal" data-bs-target="#agregarRegistroModal"><button
+                id="btnRegistroMonitoreo" type="button" class="btn btn-primary"
+                style="background: #278650; border-color: #278650">
+                Agregar Registro
+              </button></a>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Modal para editar registro de plantas -->
-    <div
-      class="modal fade"
-      id="modificarPlantaModal"
-      tabindex="-1"
-      aria-labelledby="modalPlantaModificar"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <section class="clean-block clean-form dark">
-              <div>
-                <div class="block-heading">
-                  <h1
-                    class="animate__animated animate__pulse"
-                    style="color: #278650"
-                  >
-                    Editar planta
-                  </h1>
-                  <p>Edita los datos de tu planta</p>
-                  <br />
-                </div>
-                <form id="modalEditarInfo" style="border-color: #278650">
-                  <div class="mb-3">
-                    <label class="form-label" for="tipo">Tipo:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="tipo"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="especie">Especie:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="especie"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="lugar"
-                      >Lugar de plantación:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="lugar"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="temporada">Temporada:</label>
-                    <select
-                      class="form-select cajasTexto shadow-none"
-                      id="temporada"
-                      required
-                    >
-                      <option value="">
-                        Selecciona la temporada de tu planta
-                      </option>
-                      <option>Primavera-Verano</option>
-                      <option>Verano-Otoño</option>
-                      <option>Otoño-Invierno</option>
-                      <option>Invierno-Primavera</option>
-                      <option>Todo el año</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="usos">Usos:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="text"
-                      id="usos"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="ubicacion"
-                      >Ubicación de la planta en casa:</label
-                    >
-                    <select
-                      class="form-select cajasTexto shadow-none"
-                      id="ubicacion"
-                    ></select>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="fecha"
-                      >Fecha en que fue plantada:</label
-                    ><input
-                      class="form-control item cajasTexto shadow-none"
-                      type="date"
-                      id="fecha"
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="descripcion"
-                      >Descripción sobre la planta:</label
-                    ><textarea
-                      class="cajasTexto"
-                      name="desc"
-                      id="descripcion"
-                      cols="50"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="notas"
-                      >Notas para el cuidado de la planta</label
-                    ><textarea
-                      class="cajasTexto"
-                      name="note"
-                      id="notas"
-                      cols="50"
-                      rows="3"
-                    ></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cerrar
-                    </button>
-                    <button
-                      id="btnEditarPlanta"
-                      type="submit"
-                      class="btn btn-primary"
-                      style="background: #278650; border-color: #278650"
-                    >
-                      Guardar
-                    </button>
-                  </div>
-                </form>
+  <!-- Modal para editar registro de plantas -->
+  <div class="modal fade" id="modificarPlantaModal" tabindex="-1" aria-labelledby="modalPlantaModificar"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <section class="clean-block clean-form dark">
+            <div>
+              <div class="block-heading">
+                <h1 class="animate__animated animate__pulse" style="color: #278650">
+                  Editar planta
+                </h1>
+                <p>Edita los datos de tu planta</p>
+                <br />
               </div>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal para agregar registro de monitoreo -->
-    <div
-      class="modal fade"
-      id="agregarRegistroModal"
-      tabindex="-1"
-      aria-labelledby="modalMonitoreoAgregar"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <section class="clean-block clean-form dark">
-              <div>
-                <div class="block-heading">
-                  <h1
-                    class="animate__animated animate__pulse"
-                    style="color: #278650"
-                  >
-                    Monitoreo
-                  </h1>
-                  <p>
-                    Registra los datos actualizados del estado de tus plantas.
-                  </p>
-                  <br />
+              <form id="modalEditarInfo" style="border-color: #278650">
+                <div class="mb-3">
+                  <label class="form-label" for="tipo">Tipo:</label><input
+                    class="form-control item cajasTexto shadow-none" type="text" id="tipo" />
                 </div>
-                <form id="modalAgregarMonitoreo" style="border-color: #278650">
-                  <div class="mb-3">
-                    <label class="form-label" for="frecuencia"
-                      ><b>Frecuencia de Riego</b></label
-                    >
-                    <p>¿Cada cuánto riegas tus plantas?</p>
-                    Cada
-                    <input
-                      class="cajasTexto shadow-none"
-                      style="width: 60px; margin-left: 15px; margin-right: 15px"
-                      type="text"
-                      id="frecuencia"
-                    />
-                    días
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="altura"
-                      ><b>Altura de tu planta</b></label
-                    >
-                    <br />
-                    Altura:
-                    <input
-                      class="cajasTexto shadow-none"
-                      style="width: 60px; margin-left: 5px; margin-right: 5px"
-                      type="text"
-                      id="altura"
-                    />
-                    centímetros
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label" for="manchas"
-                      ><b>Manchas</b></label
-                    >
-                    <br />
-                    <input type="range" class="form-range" id="rangoManchas" />
-                  </div>
-                  <div class="mb-3">
-                    <table>
-                      <tr>
-                        <td style="width: 50%">
-                          <label class="form-label" for="tierra"
-                            ><b>Tipo de tierra</b></label
-                          >
-                          <br />
-                          <input
-                            class="cajasTexto shadow-none"
-                            style="width: 180px; margin-right: 40px"
-                            type="text"
-                            id="tierra"
-                          />
-                        </td>
-                        <td>
-                          <label class="form-label" for="tierra"
-                            ><b>Sustrato de la tierra</b></label
-                          >
-                          <br />
-                          <input
-                            class="cajasTexto shadow-none"
-                            style="width: 190px"
-                            type="text"
-                            id="tierra"
-                          />
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                  <br />
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cerrar
-                    </button>
-                    <button
-                      id="btnGuardarRegistro"
-                      type="submit"
-                      class="btn btn-primary"
-                      style="background: #278650; border-color: #278650"
-                    >
-                      Guardar
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </section>
-          </div>
+                <div class="mb-3">
+                  <label class="form-label" for="especie">Especie:</label><input
+                    class="form-control item cajasTexto shadow-none" type="text" id="especie" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="lugar">Lugar de plantación:</label><input
+                    class="form-control item cajasTexto shadow-none" type="text" id="lugar" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="temporada">Temporada:</label>
+                  <select class="form-select cajasTexto shadow-none" id="temporada" required>
+                    <option value="">
+                      Selecciona la temporada de tu planta
+                    </option>
+                    <option>Primavera-Verano</option>
+                    <option>Verano-Otoño</option>
+                    <option>Otoño-Invierno</option>
+                    <option>Invierno-Primavera</option>
+                    <option>Todo el año</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="usos">Usos:</label><input
+                    class="form-control item cajasTexto shadow-none" type="text" id="usos" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="ubicacion">Ubicación de la planta en casa:</label>
+                  <select class="form-select cajasTexto shadow-none" id="ubicacion"></select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="fecha">Fecha en que fue plantada:</label><input
+                    class="form-control item cajasTexto shadow-none" type="date" id="fecha" />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="descripcion">Descripción sobre la planta:</label><textarea
+                    class="cajasTexto" name="desc" id="descripcion" cols="50" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="notas">Notas para el cuidado de la planta</label><textarea
+                    class="cajasTexto" name="note" id="notas" cols="50" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                  <button id="btnEditarPlanta" type="submit" class="btn btn-primary"
+                    style="background: #278650; border-color: #278650">
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
         </div>
       </div>
     </div>
+  </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="./js/Simple-Slider.js"></script>
-    <script src="./js/theme.js"></script>
-    <script src="./js/vanilla-zoom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./js/alertas.js"></script>
-    <script src="./js/sidebar.js"></script>
-    <script src="./js/logout.js"></script>
-    <script src="./js/consultarAreas.js"></script>
-  </body>
+  <!-- Modal para agregar registro de monitoreo -->
+  <div class="modal fade" id="agregarRegistroModal" tabindex="-1" aria-labelledby="modalMonitoreoAgregar"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <section class="clean-block clean-form dark">
+            <div>
+              <div class="block-heading">
+                <h1 class="animate__animated animate__pulse" style="color: #278650">
+                  Monitoreo
+                </h1>
+                <p>
+                  Registra los datos actualizados del estado de tus plantas.
+                </p>
+                <br />
+              </div>
+              <form id="modalAgregarMonitoreo" style="border-color: #278650">
+                <div class="mb-3">
+                  <label class="form-label" for="frecuencia"><b>Frecuencia de Riego</b></label>
+                  <p>¿Cada cuánto riegas tus plantas?</p>
+                  Cada
+                  <input class="cajasTexto shadow-none" style="width: 60px; margin-left: 15px; margin-right: 15px"
+                    type="text" id="frecuencia" />
+                  días
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="altura"><b>Altura de tu planta</b></label>
+                  <br />
+                  Altura:
+                  <input class="cajasTexto shadow-none" style="width: 60px; margin-left: 5px; margin-right: 5px"
+                    type="text" id="altura" />
+                  centímetros
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="manchas"><b>Manchas</b></label>
+                  <br />
+                  <input type="range" min="0" max="10" step="2" class="form-range" id="rangoManchas" />
+                </div>
+                <div class="mb-3">
+                  <table>
+                    <tr>
+                      <td style="width: 50%">
+                        <label class="form-label" for="tierra"><b>Tipo de tierra</b></label>
+                        <br />
+                        <input class="cajasTexto shadow-none" style="width: 180px; margin-right: 40px" type="text"
+                          id="tierra" />
+                      </td>
+                      <td>
+                        <label class="form-label" for="tierra"><b>Sustrato de la tierra</b></label>
+                        <br />
+                        <input class="cajasTexto shadow-none" style="width: 190px" type="text" id="sustratoTierra" />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <br />
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Cerrar
+                  </button>
+                  <button id="btnEditarRegistro" type="button" class="btn btn-primary"
+                    style="background: #278650; border-color: #278650">
+                    Editar
+                  </button>
+                  <button id="btnAgregarRegistro" type="button" class="btn btn-primary"
+                    style="background: #278650; border-color: #278650">
+                    Agregar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="./bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+  <!-- <script src="./js/Simple-Slider.js"></script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/vanilla-zoom.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="./js/alertas.js"></script>
+  <!-- <script src="./js/sidebar.js"></script> -->
+  <script src="./js/logout.js"></script>
+  <script src="./js/detallesPlanta.js"></script>
+  <script src="./js/APIPlantas.js"></script>
+  <script src="./js/evaluarPlantas.js"></script>
+</body>
+
 </html>
