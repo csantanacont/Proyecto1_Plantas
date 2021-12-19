@@ -36,7 +36,7 @@ db.collection('areas').where("idUsuarioRef", "==",idUsuario).get().then((querySn
 /*###################################################################################################*/
 
 formularioPlantas.addEventListener('submit', async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     var tipo = document.getElementById('tipo').value;
     var especie = document.getElementById('especie').value;
     var lugar = document.getElementById('lugar').value;

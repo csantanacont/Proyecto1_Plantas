@@ -13,6 +13,7 @@ formularioRegistro.addEventListener('submit', async (e) => {
   var fechaNacimiento = document.getElementById('fechaNacimientoInput').value;
   var correo = document.getElementById('emailInput').value;
   var password = document.getElementById('passwordInput').value;
+  var password2 = document.getElementById('password2Input').value;
 
   if(correoRegistrado == true)
   {
@@ -20,22 +21,29 @@ formularioRegistro.addEventListener('submit', async (e) => {
     return;
   }
   if (correoRegistrado == false){
-    db.collection("usuarios").add({
-      nombre: nombreUsuario,
-      aPaterno: apellidoPaterno,
-      aMaterno: apellidoMaterno,
-      fechaNacimiento: fechaNacimiento,
-      email: correo,
-      pass: password
-    })
-    .then((docRef) => {
-        console.log("Usuario registrado con ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error al agregar usuario: ", error);
-    });
-    await mensajeExito('Registro exitoso');
-    setTimeout("redireccionar('./login.html')", 1500);
+    if(password2 == password){
+      db.collection("usuarios").add({
+        nombre: nombreUsuario,
+        aPaterno: apellidoPaterno,
+        aMaterno: apellidoMaterno,
+        fechaNacimiento: fechaNacimiento,
+        email: correo,
+        pass: password
+      })
+      .then((docRef) => {
+          console.log("Usuario registrado con ID: ", docRef.id);
+      })
+      .catch((error) => {
+          console.error("Error al agregar usuario: ", error);
+      });
+      await mensajeExito('Registro exitoso');
+      setTimeout("redireccionar('./login.html')", 1500);
+    }
+    else{
+      mensajeError("Las contraseñas deben coincidir");
+    return;
+    }
+    
   }
 });
   

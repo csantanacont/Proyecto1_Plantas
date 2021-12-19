@@ -91,7 +91,12 @@ function editarArea(id){
                 espAreas.length = 0;
                 espacioArea.value = doc.data().espacio;
                 espAreas[0] = new Option('Selecciona el tipo de espacio', "")
-                espAreas[1] = new Option('Habitación')
+                espAreas[1] = new Option('Cuarto')
+                espAreas[2] = new Option('Cuarto de baño')
+                espAreas[3] = new Option('Vestibulo')
+                espAreas[4] = new Option('Cocina')
+                espAreas[5] = new Option('Sala')
+                espAreas[6] = new Option('Oficina')
             }
 
             formularioAreas.addEventListener('submit', async(e) =>
