@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>Registrar área</title>
+  <link href="./css/areas.css" rel="stylesheet" />
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.min1.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
@@ -73,11 +74,14 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label" for="especie">Dimensiones del espacio:*</label><input
-              class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="altoArea" placeholder="Alto (metros)"
-              style="width: 150px"/>
-            <input class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="anchoArea"
-              placeholder="Ancho (metros)" style="width: 150px"/>
+            <label class="form-label" for="especie">Dimensiones del espacio:*</label>
+            <div class="flex">
+              <input
+                class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="altoArea" placeholder="Alto (metros)"
+                style="width: 150px"/>
+              <input class="form-control item cajasTexto shadow-none" type="number" min="1" max="5" required id="anchoArea"
+                placeholder="Ancho (metros)" style="width: 150px"/>
+            </div>
             <!--
                 TODO Formato de ingreso por definir
               -->

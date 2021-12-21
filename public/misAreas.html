@@ -121,11 +121,20 @@
                   </select>
                 </div>
                 <div class="mb-3">
-                  <label class="form-label" for="especie">Dimensiones del espacio:*</label><input
-                    class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="altoArea"
-                    placeholder="Alto (metros)" style="width: 150px" />
-                  <input class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="anchoArea"
-                    placeholder="Ancho (metros)" style="width: 150px" />
+                  <label class="form-label" for="especie">Dimensiones del espacio:*</label><br>
+                  <div class="flex">
+                    <div>
+                      <label for="alto">Alto (metros):</label>
+                      <input
+                        class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="altoArea"
+                        placeholder="Alto (metros)" style="width: 150px" />
+                    </div>
+                    <div>
+                      <label for="ancho">Ancho (metros):</label>
+                      <input class="form-control item cajasTexto shadow-none" type="number" required min="0" max="5" id="anchoArea"
+                        placeholder="Ancho (metros)" style="width: 150px" />
+                    </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                   <label class="form-label" for="temporada">Tipo de Iluminación:*</label>
