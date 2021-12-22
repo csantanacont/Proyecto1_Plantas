@@ -38,48 +38,43 @@ function muestraDetalles(id) {
                 `;
                 modalInfo.innerHTML = "";
                 modalInfo.innerHTML += `
-            <div class="col-md-6">
+            <div>
                 <br>
+                <div>
+                  <div id="imagenesInfo" style="display:flex; align-content:center; justify-content:center;">
+                      <img id="img1" style="min-width:150px; max-height:200px" class="img-fluid d-block small-preview" src="${doc.data().img1}" />
+                  </div>  
+                </div>
+
                 <div id="modalInfo">
                     <!--<h3>${doc.data().tipo}</h3>-->
-                    <p style="font-size: small"><label style="font-size: medium; color:#278650 ; font-weight: bold;">Especie:</label> ${doc.data().especie}</p>
+                    <p style="font-size: medium; color:#278650 ; font-weight: bold; text-align:center; margin-top:3%;">${doc.data().especie}</p> 
                         <div>
-                            <p style="font-size: small"><label style="font-size: medium; color: #278650; font-weight: bold;">Descripcion de la planta:</label> ${doc.data().descripcion}</p>
+                            <p style="font-size: small; font-weight: bold;text-align:center; padding:2%;"> ${doc.data().descripcion}</p>
                         </div>
                         <div>
-                            <p style="font-size: small"><label style="font-size: medium; color: #278650; font-weight: bold;">Lugar de plantación:</label> ${doc.data().lugar}</p>
+                            <p style="font-size: small; padding-left:2%; "><label style="font-size: medium; color: #278650; font-weight: bold;">Lugar de plantación: </label> ${doc.data().lugar}</p>
                         </div>
                         <div>
-                            <p style="font-size: small"><label style="font-size: medium; color: #278650; font-weight: bold;">Temporada:</label> ${doc.data().temp}</p>
+                            <p style="font-size: small; padding-left:2%; "><label style="font-size: medium; color: #278650; font-weight: bold;">Temporada: </label> ${doc.data().temp}</p>
                         </div>
                         <div>
-                            <p style="font-size: small"><label style="font-size: medium; color: #278650; font-weight: bold;">Usos:</label> ${doc.data().usos}</p>
+                            <p style="font-size: small; padding-left:2%"><label style="font-size: medium; color: #278650; font-weight: bold;">Fecha en que fue plantada: </label> ${doc.data().fechaPlantacion}</p>
                         </div>
                         <div>
-                            <p style="font-size: small"><label style="font-size: medium; color: #278650; font-weight: bold;">Fecha en que fue plantada: </label> ${doc.data().fechaPlantacion}</p>
-                        </div>
-                        <div>
-                            <p style="font-size: small">
+                            <p style="font-size: small; padding-left:2%">
                             <label style="font-size: medium; color: #278650; font-weight: bold;">Notas sobre el cuidado de la planta:</label>
                             ${doc.data().notas}
                             </p>
                         </div> 
                 </div>
-            
             </div>
             <a onclick="editarPlanta('${doc.id}')" data-bs-toggle="modal" data-bs-target="#modificarPlantaModal">
                 <img src="img/editar.svg" style=" position: absolute; bottom: 0px; right: 0px; margin: 10px; margin-right: 50px;" class="iconos-tam" />
             </a>
         
             <a><img style="position: absolute; bottom: 0px; right: 0px; margin: 10px" src="img/eliminar.svg" class="iconos-tam" onclick="eliminar('${doc.id}')" /></a>
-            
-
-            <div style="display:flex; margin-left:40%">
-                <div id="imagenesInfo" class="sidebar">
-                    <img id="img1" style="width: 40%" class="img-fluid d-block small-preview" src="${doc.data().img1}" />
-                </div>  
-            </div>
-                 `   
+               `   
           
             } else {
                 // doc.data() will be undefined in this case
